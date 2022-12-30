@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Exercises
+﻿namespace Exercises
 {
     public static class Contains
     {
@@ -31,7 +27,7 @@ namespace Exercises
             DateTime date, IEnumerable<DateTime> existingAppointmentDates)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return !existingAppointmentDates.Contains(date);
         }
 
         //Coding Exercise 2
@@ -55,7 +51,7 @@ namespace Exercises
         public static int CountFriendsOf(Friend friend, IEnumerable<Person> people)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return people.Count(person => person.Friends.Contains(friend));
         }
 
         //Refactoring challenge
@@ -64,7 +60,7 @@ namespace Exercises
             IEnumerable<string> words, IEnumerable<string> bannedWords)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return words.Any(word => bannedWords.Contains(word));
         }
 
         //do not modify this method

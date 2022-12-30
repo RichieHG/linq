@@ -71,6 +71,7 @@ namespace ConsoleSample
             //DotNet6Improvements.Run();
 
             var numbers = new[] { 1, 4, 3, 99, 256, 2 };
+            var words = new[] { "a", "bb", "ccc", "dddd" };
             var pets = Data.Pets;
 
             #region Introduction to LINQ
@@ -231,18 +232,41 @@ namespace ConsoleSample
             #endregion
 
             #region Count and LongCount
-            var countOfDogs = pets.Count(pet => pet.PetType == PetType.Dog);
-            Printer.Print(countOfDogs, nameof(countOfDogs));
+            //var countOfDogs = pets.Count(pet => pet.PetType == PetType.Dog);
+            //Printer.Print(countOfDogs, nameof(countOfDogs));
 
-            var countOfPetsNamedBruce = pets.LongCount(pet => pet.Name == "Bruce");
-            Printer.Print(countOfPetsNamedBruce, nameof(countOfPetsNamedBruce));
+            //var countOfPetsNamedBruce = pets.LongCount(pet => pet.Name == "Bruce");
+            //Printer.Print(countOfPetsNamedBruce, nameof(countOfPetsNamedBruce));
 
-            var countOfAllSmallDogs = pets.Count(pet => 
-                pet.PetType == PetType.Dog && pet.Weight < 10 );
-            Printer.Print(countOfAllSmallDogs, nameof(countOfAllSmallDogs));
+            //var countOfAllSmallDogs = pets.Count(pet => 
+            //    pet.PetType == PetType.Dog && pet.Weight < 10 );
+            //Printer.Print(countOfAllSmallDogs, nameof(countOfAllSmallDogs));
 
-            var allPetsCount = pets.Count();
-            Printer.Print(allPetsCount, nameof(allPetsCount));
+            //var allPetsCount = pets.Count();
+            //Printer.Print(allPetsCount, nameof(allPetsCount));
+            #endregion
+
+            #region Contains
+            //numbers = new[] { 16, 8, 9, -1, 2 };
+            //bool is7Present = numbers.Contains(7);
+            //Printer.Print(is7Present, nameof(is7Present));
+
+            //words = new[] { "lion", "tiger", "snow leopard"};
+            //bool isTigerPresent = words.Contains("tiger");
+            //Printer.Print(isTigerPresent, nameof(isTigerPresent));
+            
+            //bool isHannibalPresentVersion1 = pets.Contains(
+            //    new Pet(1, "Hannibal", PetType.Fish, 1.1f));
+            //Printer.Print(isHannibalPresentVersion1, nameof(isHannibalPresentVersion1));
+            
+            //bool isHannibalPresentCustomComparer = pets.Contains(
+            //    new Pet(1, "Hannibal", PetType.Fish, 1.1f), new PetCompareById());
+            //Printer.Print(isHannibalPresentCustomComparer, nameof(isHannibalPresentCustomComparer));
+
+            //var hannibal = pets.ToArray()[0];
+            //bool isHannibalPresent = pets.Contains(hannibal);
+            //Printer.Print(isHannibalPresent, nameof(isHannibalPresent));
+
             #endregion
         }
 

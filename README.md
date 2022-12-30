@@ -89,3 +89,9 @@ If I had to mention two things to take away from this post:
 
 ## All Method
 This method returns **true** if we apply it in **Empty Collections**. Also, the lambda passed as an argument will never be executed (because it's executed for each element of the collection, but there are none)
+
+## Count and LongCount
+We have to use LongCount when we expect a result larger than the maximim value of ***int (2,147,483,647)*** and this method will return a long instead a int.
+
+## Contains
+In some cases we will need to declare a *comparer* to be more explicit how we can make the comparison between objects. Remember as default config Contains uses the objects by references.
