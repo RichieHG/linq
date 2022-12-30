@@ -218,7 +218,7 @@ namespace ConsoleSample
 
             #region All
             //numbers = new[] { 5, 9, 2, 12, 6 };
-            
+
             //var areAllNumbersLagerThanZero = numbers.All(number => number > 0);
             //Printer.Print(areAllNumbersLagerThanZero, nameof(areAllNumbersLagerThanZero));
 
@@ -228,6 +228,21 @@ namespace ConsoleSample
 
             //var areAllCats = pets.All(pet => pet.PetType == PetType.Cat);
             //Printer.Print(areAllCats, nameof(areAllCats));
+            #endregion
+
+            #region Count and LongCount
+            var countOfDogs = pets.Count(pet => pet.PetType == PetType.Dog);
+            Printer.Print(countOfDogs, nameof(countOfDogs));
+
+            var countOfPetsNamedBruce = pets.LongCount(pet => pet.Name == "Bruce");
+            Printer.Print(countOfPetsNamedBruce, nameof(countOfPetsNamedBruce));
+
+            var countOfAllSmallDogs = pets.Count(pet => 
+                pet.PetType == PetType.Dog && pet.Weight < 10 );
+            Printer.Print(countOfAllSmallDogs, nameof(countOfAllSmallDogs));
+
+            var allPetsCount = pets.Count();
+            Printer.Print(allPetsCount, nameof(allPetsCount));
             #endregion
         }
 
