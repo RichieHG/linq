@@ -71,6 +71,7 @@ namespace ConsoleSample
             //DotNet6Improvements.Run();
 
             var numbers = new[] { 1, 4, 3, 99, 256, 2 };
+            var pets = Data.Pets;
 
             #region Introduction to LINQ
             //var wordsNoUpperCase = new string[] {
@@ -202,8 +203,6 @@ namespace ConsoleSample
             //bool isAnyLargerThan10 = numbers.Any(number => number > 10);
             //Console.WriteLine(isAnyLargerThan10);
 
-            //var pets = Data.Pets;
-
             //var isAnyPetNamedBruce = pets.Any(pet => pet.Name == "Bruce");
             //Printer.Print(isAnyPetNamedBruce, nameof(isAnyPetNamedBruce));
 
@@ -215,9 +214,20 @@ namespace ConsoleSample
             //Printer.Print(isAnyAVerySpecificPet, nameof(isAnyAVerySpecificPet));
 
             //var isNotEmpty = pets.Any(); //Checks if a collection has or not elements
+            #endregion
 
+            #region All
+            //numbers = new[] { 5, 9, 2, 12, 6 };
+            
+            //var areAllNumbersLagerThanZero = numbers.All(number => number > 0);
+            //Printer.Print(areAllNumbersLagerThanZero, nameof(areAllNumbersLagerThanZero));
 
+            //var doAllHaveNonEmptyNames = pets.All(pet =>
+            //    !string.IsNullOrEmpty(pet.Name));
+            //Printer.Print(doAllHaveNonEmptyNames, nameof(doAllHaveNonEmptyNames));
 
+            //var areAllCats = pets.All(pet => pet.PetType == PetType.Cat);
+            //Printer.Print(areAllCats, nameof(areAllCats));
             #endregion
         }
 

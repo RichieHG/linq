@@ -85,3 +85,7 @@ If I had to mention two things to take away from this post:
 #### Disadvantages
 * Has a new "language" to learn
 * Not all LINQ operations are supported (like Distinct operation) and at the end we will need apply method syntax
+
+
+## All Method
+This method returns **true** if we apply it in **Empty Collections**. Also, the lambda passed as an argument will never be executed (because it's executed for each element of the collection, but there are none)
