@@ -2,6 +2,13 @@
 
 namespace LinqCourse.DataTypes
 {
+    public class PetByTypeComparer : IComparer<Pet>
+    {
+        public int Compare(Pet? x, Pet? y)
+        {
+            return x.PetType.CompareTo(y.PetType);
+        }
+    }
     public class PetCompareById : IEqualityComparer<Pet>
     {
         public bool Equals(Pet? x, Pet? y)

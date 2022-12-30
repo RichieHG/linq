@@ -17,7 +17,7 @@ namespace Exercises
             IEnumerable<string> words)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return words.OrderByDescending(word => word);
         }
 
         //Coding Exercise 2
@@ -33,7 +33,7 @@ namespace Exercises
             IEnumerable<int> numbers)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return numbers.OrderByDescending(n => n % 2 == 0).ThenByDescending(n => n);
         }
 
         //Refactoring challenge
@@ -41,7 +41,7 @@ namespace Exercises
         public static IEnumerable<DateTime> OrderByMonth_Refactored(List<DateTime> dates)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return dates.OrderBy(date => date.Month);
         }
 
         //do not modify this method

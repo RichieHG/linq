@@ -254,11 +254,11 @@ namespace ConsoleSample
             //words = new[] { "lion", "tiger", "snow leopard"};
             //bool isTigerPresent = words.Contains("tiger");
             //Printer.Print(isTigerPresent, nameof(isTigerPresent));
-            
+
             //bool isHannibalPresentVersion1 = pets.Contains(
             //    new Pet(1, "Hannibal", PetType.Fish, 1.1f));
             //Printer.Print(isHannibalPresentVersion1, nameof(isHannibalPresentVersion1));
-            
+
             //bool isHannibalPresentCustomComparer = pets.Contains(
             //    new Pet(1, "Hannibal", PetType.Fish, 1.1f), new PetCompareById());
             //Printer.Print(isHannibalPresentCustomComparer, nameof(isHannibalPresentCustomComparer));
@@ -266,6 +266,40 @@ namespace ConsoleSample
             //var hannibal = pets.ToArray()[0];
             //bool isHannibalPresent = pets.Contains(hannibal);
             //Printer.Print(isHannibalPresent, nameof(isHannibalPresent));
+
+            #endregion
+
+            #region OrderBy
+
+            //var petsOrderedByName = pets.OrderBy(pet => pet.Name);
+            //Printer.Print(petsOrderedByName, nameof(petsOrderedByName));
+            //Printer.Print(pets, nameof(pets));
+            //var petsOrderedDesc = pets.OrderByDescending(pet => pet.Id);
+            //Printer.Print(petsOrderedDesc, nameof(petsOrderedDesc));
+
+            //numbers = new[] { 16, 8, 9, -1, 2 };
+            //var orderedNumbers = numbers.OrderBy(x => x);
+            //Printer.Print(orderedNumbers, nameof(orderedNumbers));
+
+            //words = new[] { "lion", "tiger", "snow leopard" };
+            //var orderedWordsDesc = words.OrderByDescending(x => x);
+            //Printer.Print(orderedWordsDesc, nameof(orderedWordsDesc));
+
+            //var petsOrderedByTypeThenName = pets
+            //    .OrderBy(pet => pet.PetType)
+            //    .ThenBy(pet => pet.Name);
+            //Printer.Print(petsOrderedByTypeThenName, nameof(petsOrderedByTypeThenName));
+
+            //var petsOrderedByTypeWithComparer = pets
+            //   .OrderBy(pet => pet, new PetByTypeComparer());
+            //Printer.Print(petsOrderedByTypeWithComparer, nameof(petsOrderedByTypeWithComparer));
+
+            //var petsReversed = pets.Reverse();
+            //Printer.Print(petsReversed, nameof(petsReversed));
+
+            //var bools = new[] { true, false, true };
+            //var orderedBools = bools.OrderBy(b => b);
+            //Printer.Print(orderedBools, nameof(orderedBools));
 
             #endregion
         }

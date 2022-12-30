@@ -94,4 +94,25 @@ This method returns **true** if we apply it in **Empty Collections**. Also, the 
 We have to use LongCount when we expect a result larger than the maximim value of ***int (2,147,483,647)*** and this method will return a long instead a int.
 
 ## Contains
-In some cases we will need to declare a *comparer* to be more explicit how we can make the comparison between objects. Remember as default config Contains uses the objects by references.
+In some cases we will need to declare a *comparer* (using *IEqualityComparer* as base interface) to be more explicit how we can make the comparison between objects. Remember as default config Contains uses the objects by references.
+
+## OrderBy | OrderByDescending | ThenBy | ThenByDescending | Reverse
+For simple types we have to use the main object of our OrderBy method as our orderKey, it looks like
+```numbers.OrderBy(number => number)```
+
+If we have to chaining more than one ordering (multiple ordering criteria), we can use **ThenBy** or **ThenByDescending** to do that.
+
+We can create our own comparer to create more specific ordering (using *IComparer* as base interface)
+
+*Reverse* method as it's name said, reverse the order of our collection.
+
+**NOTE**:
+In C# when ordering a collection by a boolean variable, the false values come before true values. For example:
+
+``` 
+var bools = new[] { true, false, true };
+var orderedBools = bools.OrderBy(b => b);
+```
+Produce this output: `{false, true, true}`
+
+For these reason you have to think in your boolean expression like in a mirror, it means, write your validation thinking your expected value has a FALSE result. Otherwise you will have to use DESCENDING methods and write your validation expecting a TRUE result.
