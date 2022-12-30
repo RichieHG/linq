@@ -116,3 +116,10 @@ var orderedBools = bools.OrderBy(b => b);
 Produce this output: `{false, true, true}`
 
 For these reason you have to think in your boolean expression like in a mirror, it means, write your validation thinking your expected value has a FALSE result. Otherwise you will have to use DESCENDING methods and write your validation expecting a TRUE result.
+
+## MinMax
+If we want to create a custom *comparer* to MinMax methos we have to implement the *IComparable* interface in our main class.
+
+For *Non-nullable types* MinMax methods will throw a Exception if the collection is empty
+
+For *Nullable types* MinMax methods will return a *null* if the collection is empty

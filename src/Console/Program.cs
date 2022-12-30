@@ -300,7 +300,28 @@ namespace ConsoleSample
             //var bools = new[] { true, false, true };
             //var orderedBools = bools.OrderBy(b => b);
             //Printer.Print(orderedBools, nameof(orderedBools));
+            #endregion
 
+            #region MinMax
+            //numbers = new[] { 16, 8, 9, -1, 2 };
+            //var smallest = numbers.Min();
+            //var largest = numbers.Max();
+            //Printer.Print(smallest, nameof(smallest));
+            //Printer.Print(largest, nameof(largest));
+
+            //var minWeight = pets.Min(p => p.Weight);
+            //var maxWeight = pets.Max(p => p.Weight);
+            //Printer.Print(minWeight, nameof(minWeight));
+            //Printer.Print(maxWeight, nameof(maxWeight));
+
+
+            //var minPet = pets.Min();
+            //var maxPet = pets.Max();
+            //Printer.Print(minPet, nameof(minPet));
+            //Printer.Print(maxPet, nameof(maxPet));
+
+            //var emptyNumbers = new int[0];
+            //var minNumber = emptyNumbers.Min();
             #endregion
         }
 

@@ -21,7 +21,7 @@ namespace LinqCourse.DataTypes
             return obj.Id;
         }
     }
-    public class Pet
+    public class Pet: IComparable<Pet>
     {
         public int Id { get; }
         public string Name { get; }
@@ -39,6 +39,11 @@ namespace LinqCourse.DataTypes
         public override string ToString()
         {
             return $"Id: {Id}, Name: {Name}, Type: {PetType}, Weight: {Weight}";
+        }
+
+        public int CompareTo(Pet? other)
+        {
+            return Weight.CompareTo(other.Weight);
         }
     }
 }
