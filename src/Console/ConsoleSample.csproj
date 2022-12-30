@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Exercises\Exercises.csproj" />
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,8 @@
 ﻿using Exercises;
+using LinqCourse;
+using LinqCourse.DataTypes;
+using Utilities;
+
 namespace ConsoleSample
 {
     public static class Extensions
@@ -66,6 +70,8 @@ namespace ConsoleSample
             //OTHERS
             //DotNet6Improvements.Run();
 
+            var numbers = new[] { 1, 4, 3, 99, 256, 2 };
+
             #region Introduction to LINQ
             //var wordsNoUpperCase = new string[] {
             //    "quick", "brown", "fox"
@@ -82,7 +88,6 @@ namespace ConsoleSample
             #endregion
 
             #region Introduction to Lambda Expressions
-            var numbers = new[] { 1, 4, 3, 99, 256, 2 };
             //bool isAnyLargerThan100 = IsAny(numbers, number => {
             //    const int max = 100;
             //    return number > max;
@@ -120,7 +125,7 @@ namespace ConsoleSample
             #endregion
 
             #region LINQ and IEnumerable<T>
-            //var numbers = new List<int> { 5, 3, 7, 1, 2, 4 };
+            //numbers = new List<int> { 5, 3, 7, 1, 2, 4 };
             //var numnerswith10 = numbers.Append(10);
 
             //Console.WriteLine("Numbers: " + string.Join(", ", numbers));
@@ -132,6 +137,7 @@ namespace ConsoleSample
             //    .OrderBy(number => number);
             //Console.WriteLine("Odd Numbers: " + string.Join(", ", orderedOddNumers));
             #endregion
+
             #region DeferredExecution
             //var shortWords = words.Where(word => word.Length < 3);
             //Console.WriteLine("First iteration");
@@ -175,22 +181,44 @@ namespace ConsoleSample
             #endregion
 
             #region Method vs Query Syntax
-            numbers = new[] { 4, 2, 7, 10, 12, 5, 4, 2 };
+            //numbers = new[] { 4, 2, 7, 10, 12, 5, 4, 2 };
 
-            var smallOrderedNumbersMethodSyntax = numbers
-                .Where(number => number < 10)
-                .OrderBy(number => number)
-                .Distinct();
-            Console.WriteLine(String.Join(", ", smallOrderedNumbersMethodSyntax));
+            //var smallOrderedNumbersMethodSyntax = numbers
+            //    .Where(number => number < 10)
+            //    .OrderBy(number => number)
+            //    .Distinct();
+            //Console.WriteLine(String.Join(", ", smallOrderedNumbersMethodSyntax));
 
-            var smallOrderedNumbersQuerySyntax = (from number in numbers
-                                                 where number < 10
-                                                 orderby number
-                                                 select number).Distinct();
-            Console.WriteLine(String.Join(", ", smallOrderedNumbersQuerySyntax));
+            //var smallOrderedNumbersQuerySyntax = (from number in numbers
+            //                                     where number < 10
+            //                                     orderby number
+            //                                     select number).Distinct();
+            //Console.WriteLine(String.Join(", ", smallOrderedNumbersQuerySyntax));
 
             #endregion
 
+            #region Any
+            //numbers = new[] { 5, 9, 2, 12, 6 };
+            //bool isAnyLargerThan10 = numbers.Any(number => number > 10);
+            //Console.WriteLine(isAnyLargerThan10);
+
+            //var pets = Data.Pets;
+
+            //var isAnyPetNamedBruce = pets.Any(pet => pet.Name == "Bruce");
+            //Printer.Print(isAnyPetNamedBruce, nameof(isAnyPetNamedBruce));
+
+            //var isAnyFish = pets.Any(pet => pet.PetType == PetType.Fish);
+            //Printer.Print(isAnyFish, nameof(isAnyFish));
+
+            //var isAnyAVerySpecificPet = pets.Any(pet => 
+            //    pet.Name.Length > 6 && pet.Id % 2 ==0);
+            //Printer.Print(isAnyAVerySpecificPet, nameof(isAnyAVerySpecificPet));
+
+            //var isNotEmpty = pets.Any(); //Checks if a collection has or not elements
+
+
+
+            #endregion
         }
 
 
