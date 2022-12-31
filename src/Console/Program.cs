@@ -324,11 +324,24 @@ namespace ConsoleSample
             //var minNumber = emptyNumbers.Min();
             #endregion
             #region Average
-            var averageNumbers = numbers.Average();
-            Printer.Print(averageNumbers, nameof(averageNumbers));
+            //var averageNumbers = numbers.Average();
+            //Printer.Print(averageNumbers, nameof(averageNumbers));
 
-            var averageWeightsOfPets = pets.Average(p => p.Weight);
-            Printer.Print(averageWeightsOfPets, nameof(averageWeightsOfPets));
+            //var averageWeightsOfPets = pets.Average(p => p.Weight);
+            //Printer.Print(averageWeightsOfPets, nameof(averageWeightsOfPets));
+            #endregion
+
+            #region Sum
+            var sumNumbers = numbers.Sum();
+            Printer.Print(sumNumbers, nameof(sumNumbers));
+
+            var sumPetsWeight = pets.Sum(p => p.Weight);
+            Printer.Print(sumPetsWeight, nameof(sumPetsWeight));
+
+            var emptyCollection = new int[0];
+            var sum = emptyCollection.Sum();
+            Printer.Print(sum, nameof(sum));
+
             #endregion
         }
 

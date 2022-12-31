@@ -139,3 +139,8 @@ If we apply Average to an empty collection, we will receive an Exception
  ```
  valueToEvaluate ?? alternativeValue
  ```
+
+ ## Sum
+This method only works with numbers or selectors with a numeric type.
+
+If we apply Sum to an empty collection, we will receive a Zero as result.
