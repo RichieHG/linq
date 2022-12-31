@@ -332,15 +332,27 @@ namespace ConsoleSample
             #endregion
 
             #region Sum
-            var sumNumbers = numbers.Sum();
-            Printer.Print(sumNumbers, nameof(sumNumbers));
+            //var sumNumbers = numbers.Sum();
+            //Printer.Print(sumNumbers, nameof(sumNumbers));
 
-            var sumPetsWeight = pets.Sum(p => p.Weight);
-            Printer.Print(sumPetsWeight, nameof(sumPetsWeight));
+            //var sumPetsWeight = pets.Sum(p => p.Weight);
+            //Printer.Print(sumPetsWeight, nameof(sumPetsWeight));
 
-            var emptyCollection = new int[0];
-            var sum = emptyCollection.Sum();
-            Printer.Print(sum, nameof(sum));
+            //var emptyCollection = new int[0];
+            //var sum = emptyCollection.Sum();
+            //Printer.Print(sum, nameof(sum));
+            #endregion
+
+            #region ElementAt
+            var firstNumber = numbers[0];
+            Printer.Print(firstNumber, nameof(firstNumber));
+
+            var secondPet = pets.ElementAt(1);
+            Printer.Print(secondPet, nameof(secondPet));
+
+           //var nonExistentPet = pets.ElementAt(10); // Throws an Exception
+            var nonExistentPetOrDefault = pets.ElementAtOrDefault(10);
+            Printer.Print(nonExistentPetOrDefault, nameof(nonExistentPetOrDefault));
 
             #endregion
         }
