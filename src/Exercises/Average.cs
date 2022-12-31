@@ -24,9 +24,22 @@ namespace Exercises
         public static float? AverageSnowFall(SnowFallData snowFallData)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //if (snowFallData is null ||
+            //    snowFallData.MonthlySnowFallDataItems is null ||
+            //    !snowFallData.MonthlySnowFallDataItems.Any() ||
+            //    snowFallData.MonthlySnowFallDataItems.Count() != 12)
+            //    return null;
+            //return snowFallData.MonthlySnowFallDataItems.Average(a => a.SnowfallInCentimeters);
+            return IsValid(snowFallData) ? snowFallData.MonthlySnowFallDataItems.Average(a => a.SnowfallInCentimeters) : null;
         }
 
+        private static bool IsValid(SnowFallData snowFallData)
+        {
+            return (snowFallData is not null &&
+                     snowFallData.MonthlySnowFallDataItems is not null &&
+                     snowFallData.MonthlySnowFallDataItems.Any() &&
+                     snowFallData.MonthlySnowFallDataItems.Count() == 12);
+        }
         //Coding Exercise 2
         /*
         Let's define a Student class. A student has a collection of Marks, 
@@ -49,7 +62,8 @@ namespace Exercises
         public static double MaxAverageOfMarks(IEnumerable<Student> students)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return students.Any() ? 
+                students.Max(s => s.Marks.Any() ? s.Marks.Average() : 0) : 0;
         }
 
         //Refactoring challenge
@@ -58,7 +72,9 @@ namespace Exercises
             List<float?> heights, float defaultIfNull)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return (heights is not null &&
+                    heights.Any()) ? 
+                    heights.Average(h => /*h.HasValue ? h.Value : defaultIfNull*/ h ?? defaultIfNull) : 0;
         }
 
         //do not modify this method

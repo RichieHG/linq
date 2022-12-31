@@ -70,7 +70,7 @@ namespace ConsoleSample
             //OTHERS
             //DotNet6Improvements.Run();
 
-            var numbers = new[] { 1, 4, 3, 99, 256, 2 };
+            var numbers = new[] { 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
             var words = new[] { "a", "bb", "ccc", "dddd" };
             var pets = Data.Pets;
 
@@ -322,6 +322,13 @@ namespace ConsoleSample
 
             //var emptyNumbers = new int[0];
             //var minNumber = emptyNumbers.Min();
+            #endregion
+            #region Average
+            var averageNumbers = numbers.Average();
+            Printer.Print(averageNumbers, nameof(averageNumbers));
+
+            var averageWeightsOfPets = pets.Average(p => p.Weight);
+            Printer.Print(averageWeightsOfPets, nameof(averageWeightsOfPets));
             #endregion
         }
 

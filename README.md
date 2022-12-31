@@ -123,3 +123,19 @@ If we want to create a custom *comparer* to MinMax methos we have to implement t
 For *Non-nullable types* MinMax methods will throw a Exception if the collection is empty
 
 For *Nullable types* MinMax methods will return a *null* if the collection is empty
+
+## Average
+This method only works with numbers or selectors with a numeric type.
+
+If we apply Average to an empty collection, we will receive an Exception
+ ## Null-Coalescing (??)
+ If we want to evaluate if a object is null to use another one, we can use Conditional Operator (? :) and we would have something like
+ ```
+ valueToEvaluate != null ? valueToEvaluate : alternativeValue
+ ``` 
+
+ But we also do this easier using the Null-Coalescing operator (??) and our last code would look like:
+
+ ```
+ valueToEvaluate ?? alternativeValue
+ ```
