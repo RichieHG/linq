@@ -17,10 +17,12 @@ namespace Exercises
             *all other characters in this word are lower case
         If there are no valid names in this collection, the result should be null.
          */
-        public static string FindFirstNameInTheCollection(IEnumerable<string> words)
+        public static string? FindFirstNameInTheCollection(IEnumerable<string> words)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return words.FirstOrDefault(w => w.Length >= 2 &&
+                char.IsUpper(w[0]) && 
+                w.Count(l => char.IsUpper(l)) == 1);
         }
 
         //Coding Exercise 2
@@ -30,18 +32,19 @@ namespace Exercises
         
         If the collection is empty, the result should be null.
          */
-        public static Person GetYoungest(IEnumerable<Person> people)
+        public static Person? GetYoungest(IEnumerable<Person> people)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //return people.FirstOrDefault(p => p.DateOfBirth == people.Max(x => x.DateOfBirth));
+            return people.OrderBy(p => p.DateOfBirth).LastOrDefault();
         }
 
         //Refactoring challenge
         //TODO implement this method
-        public static Person FindOwnerOf_Refactored(Pet pet, IEnumerable<Person> people)
+        public static Person? FindOwnerOf_Refactored(Pet pet, IEnumerable<Person> people)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return people.FirstOrDefault(p => p.Pets.Contains(pet));
         }
 
         //do not modify this method

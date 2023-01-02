@@ -97,6 +97,8 @@ We have to use LongCount when we expect a result larger than the maximim value o
 In some cases we will need to declare a *comparer* (using *IEqualityComparer* as base interface) to be more explicit how we can make the comparison between objects. Remember as default config Contains uses the objects by references.
 
 ## OrderBy | OrderByDescending | ThenBy | ThenByDescending | Reverse
+This methos always (when it would not be Descending) will order your collection from smallest to largest.
+
 For simple types we have to use the main object of our OrderBy method as our orderKey, it looks like
 ```numbers.OrderBy(number => number)```
 
@@ -144,3 +146,8 @@ If we apply Average to an empty collection, we will receive an Exception
 This method only works with numbers or selectors with a numeric type.
 
 If we apply Sum to an empty collection, we will receive a Zero as result.
+
+## First and Last
+This methos will throw an exception if the collection is empty or any element match with the predicate.
+
+To avoid this exception we can use FirstOrDefault / LastOrDefault methods that can handle an empty collection or a non matches returned the default value for the collection.

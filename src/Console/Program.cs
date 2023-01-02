@@ -344,16 +344,32 @@ namespace ConsoleSample
             #endregion
 
             #region ElementAt
-            var firstNumber = numbers[0];
-            Printer.Print(firstNumber, nameof(firstNumber));
+            // var firstNumber = numbers[0];
+            // Printer.Print(firstNumber, nameof(firstNumber));
 
-            var secondPet = pets.ElementAt(1);
-            Printer.Print(secondPet, nameof(secondPet));
+            // var secondPet = pets.ElementAt(1);
+            // Printer.Print(secondPet, nameof(secondPet));
 
-           //var nonExistentPet = pets.ElementAt(10); // Throws an Exception
-            var nonExistentPetOrDefault = pets.ElementAtOrDefault(10);
-            Printer.Print(nonExistentPetOrDefault, nameof(nonExistentPetOrDefault));
+            ////var nonExistentPet = pets.ElementAt(10); // Throws an Exception
+            // var nonExistentPetOrDefault = pets.ElementAtOrDefault(10);
+            // Printer.Print(nonExistentPetOrDefault, nameof(nonExistentPetOrDefault));
+            #endregion
 
+            #region FirstAndLast
+            //var firstNumber = numbers.First();
+            //Printer.Print(firstNumber, nameof(firstNumber));
+
+            //var firstOddNumber = numbers.First(n => n % 2 == 1);
+            //Printer.Print(firstOddNumber, nameof(firstOddNumber));
+
+            //var lastPetHeavierThan100 = pets.LastOrDefault(p => p.Weight > 100);
+            //Printer.Print(lastPetHeavierThan100, nameof(lastPetHeavierThan100));
+
+            //var lastDog = pets.Last(p => p.PetType == PetType.Dog);
+            //Printer.Print(lastDog, nameof(lastDog));
+
+            //var heaviestPet = pets.OrderBy(p => p.Weight).LastOrDefault();
+            //Printer.Print(heaviestPet, nameof(heaviestPet));
             #endregion
         }
 
