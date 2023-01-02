@@ -151,3 +151,8 @@ If we apply Sum to an empty collection, we will receive a Zero as result.
 This methos will throw an exception if the collection is empty or any element match with the predicate.
 
 To avoid this exception we can use FirstOrDefault / LastOrDefault methods that can handle an empty collection or a non matches returned the default value for the collection.
+
+## Single
+This method is like First or Last methods, but it's a singularity, if in the collection there are more than ONE element which matches which the predicate, SingleMethod will throw an Exception. 
+
+Also it will do the same if any element matches. To avoid this behaviour we can use SingleOrDefault to receive the default value.

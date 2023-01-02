@@ -20,10 +20,11 @@ namespace Exercises
             *for words {"aaa", "BBB", "CcC", "DDD"} InvalidOperationException 
                 will be thrown
          */
-        public static string GetTheOnlyUpperCaseWord(IEnumerable<string> words)
+        public static string? GetTheOnlyUpperCaseWord(IEnumerable<string> words)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //return words.SingleOrDefault(w => w.ToUpper() == w);
+            return words.SingleOrDefault(w => w.All(l => char.IsUpper(l)));
         }
 
         /*
@@ -60,7 +61,7 @@ namespace Exercises
             IEnumerable<IEnumerable<int>> numberCollections)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return numberCollections.Single(n => n.Count() == 1);
         }
 
         //Refactoring challenge
@@ -69,7 +70,7 @@ namespace Exercises
             IEnumerable<DateTime> dates, DayOfWeek dayOfWeek)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return dates.Count(d => d.DayOfWeek == dayOfWeek) == 1 ? dates.Single(d => d.DayOfWeek == dayOfWeek) : null;
         }
 
         //do not modify this method

@@ -323,6 +323,7 @@ namespace ConsoleSample
             //var emptyNumbers = new int[0];
             //var minNumber = emptyNumbers.Min();
             #endregion
+
             #region Average
             //var averageNumbers = numbers.Average();
             //Printer.Print(averageNumbers, nameof(averageNumbers));
@@ -370,6 +371,22 @@ namespace ConsoleSample
 
             //var heaviestPet = pets.OrderBy(p => p.Weight).LastOrDefault();
             //Printer.Print(heaviestPet, nameof(heaviestPet));
+            #endregion
+
+            #region Single
+            numbers = new[] { 10, 1, 4, 17, 122 };
+            var singleLargerThan100 = numbers.Single(n => n > 100);
+            Printer.Print(singleLargerThan100, nameof(singleLargerThan100));
+
+            //var singleLargerThan15 = numbers.Single(n => n > 15);
+            //Printer.Print(singleLargerThan15, nameof(singleLargerThan15));
+
+            var singleElemArray = new int[] { 200 };
+            var singleElem = singleElemArray.Single();
+            Printer.Print(singleElem, nameof(singleElem));
+
+            var singleLargerThan150 = numbers.SingleOrDefault(x => x > 150);
+            Printer.Print(singleLargerThan150, nameof(singleLargerThan150));
             #endregion
         }
 
