@@ -374,19 +374,53 @@ namespace ConsoleSample
             #endregion
 
             #region Single
-            numbers = new[] { 10, 1, 4, 17, 122 };
-            var singleLargerThan100 = numbers.Single(n => n > 100);
-            Printer.Print(singleLargerThan100, nameof(singleLargerThan100));
+            //numbers = new[] { 10, 1, 4, 17, 122 };
+            //var singleLargerThan100 = numbers.Single(n => n > 100);
+            //Printer.Print(singleLargerThan100, nameof(singleLargerThan100));
 
-            //var singleLargerThan15 = numbers.Single(n => n > 15);
-            //Printer.Print(singleLargerThan15, nameof(singleLargerThan15));
+            ////var singleLargerThan15 = numbers.Single(n => n > 15);
+            ////Printer.Print(singleLargerThan15, nameof(singleLargerThan15));
 
-            var singleElemArray = new int[] { 200 };
-            var singleElem = singleElemArray.Single();
-            Printer.Print(singleElem, nameof(singleElem));
+            //var singleElemArray = new int[] { 200 };
+            //var singleElem = singleElemArray.Single();
+            //Printer.Print(singleElem, nameof(singleElem));
 
-            var singleLargerThan150 = numbers.SingleOrDefault(x => x > 150);
-            Printer.Print(singleLargerThan150, nameof(singleLargerThan150));
+            //var singleLargerThan150 = numbers.SingleOrDefault(x => x > 150);
+            //Printer.Print(singleLargerThan150, nameof(singleLargerThan150));
+            #endregion
+
+            #region Where
+            //numbers = new[] { 10, 1, 4, 17, 122 };
+            //var evenNumbers = numbers.Where(n => n % 2 == 0);
+            //Printer.Print(evenNumbers, nameof(evenNumbers));
+
+            //var heavierThan10kilos = pets.Where(p => p.Weight > 10);
+            //Printer.Print(heavierThan10kilos, nameof(heavierThan10kilos));
+
+            //var heavierThan100kilos = pets.Where(p => p.Weight > 100);
+            //Printer.Print(heavierThan100kilos, nameof(heavierThan100kilos));
+
+            //var verySpecificPets = pets.Where(p => 
+            //    (p.PetType == PetType.Cat || p.PetType == PetType.Dog) &&
+            //    p.Name.Length >= 4 &&
+            //    p.Weight > 10 &&
+            //    p.Id % 2 == 0);
+            //Printer.Print(verySpecificPets, nameof(verySpecificPets));
+
+            //var indexesSelectedByUser = new[] { 1, 6, 7 };
+            //var petsSelectedByUserAndLighterThan5kilos = pets
+            //    .Where((pet, index) => 
+            //        pet.Weight < 5 && 
+            //        indexesSelectedByUser.Contains(index));
+            //Printer.Print(petsSelectedByUserAndLighterThan5kilos, nameof(petsSelectedByUserAndLighterThan5kilos));
+
+            //int countOfHeavyPets1 = pets.Count(p => p.Weight > 30);
+            //int countOfHeavyPets2 = pets.Where(p => p.Weight > 30).Count();
+
+            //Printer.Print(countOfHeavyPets1, nameof(countOfHeavyPets1));
+            //Printer.Print(countOfHeavyPets2, nameof(countOfHeavyPets2));
+
+
             #endregion
         }
 

@@ -156,3 +156,6 @@ To avoid this exception we can use FirstOrDefault / LastOrDefault methods that c
 This method is like First or Last methods, but it's a singularity, if in the collection there are more than ONE element which matches which the predicate, SingleMethod will throw an Exception. 
 
 Also it will do the same if any element matches. To avoid this behaviour we can use SingleOrDefault to receive the default value.
+
+## Where
+This method has an overload, which receive as parameter an integer which would be take as the INDEX (position into the collection) of the element that is being analyzing
