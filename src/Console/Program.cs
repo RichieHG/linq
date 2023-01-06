@@ -419,7 +419,33 @@ namespace ConsoleSample
 
             //Printer.Print(countOfHeavyPets1, nameof(countOfHeavyPets1));
             //Printer.Print(countOfHeavyPets2, nameof(countOfHeavyPets2));
+            #endregion
 
+            #region Take
+            numbers = new[] { 1, 4, 10, 154, 999, 15 };
+
+            var smallerThan20TakeWhile = numbers.TakeWhile(n => n < 20);
+            Printer.Print(smallerThan20TakeWhile, nameof(smallerThan20TakeWhile));
+
+            //var first3Numbers = numbers.Take(30);
+            //Printer.Print(first3Numbers, nameof(first3Numbers));
+
+            //var last5Numbers = numbers.TakeLast(50);
+            //Printer.Print(last5Numbers, nameof(last5Numbers));
+
+            //var threeHeaviestPets = pets.OrderBy(p => p.Weight).TakeLast(3);
+            //Printer.Print(threeHeaviestPets, nameof(threeHeaviestPets));
+
+            //var secondLargestNumber = numbers.OrderBy(n => n).TakeLast(2).First();
+            //Printer.Print(secondLargestNumber, nameof(secondLargestNumber));
+
+            //var sixtyPercentOfPets = pets
+            //    .Take((int)(pets.Count() * 0.6));
+            //Printer.Print(sixtyPercentOfPets, nameof(sixtyPercentOfPets));
+
+            var allPetsBefore30KilosPet = pets.TakeWhile(p => p.Weight < 30);
+            Printer.Print(allPetsBefore30KilosPet, nameof(allPetsBefore30KilosPet));
+           
 
             #endregion
         }

@@ -159,3 +159,6 @@ Also it will do the same if any element matches. To avoid this behaviour we can 
 
 ## Where
 This method has an overload, which receive as parameter an integer which would be take as the INDEX (position into the collection) of the element that is being analyzing
+
+## Take
+This method is commonly used with Ordered Collections to improve the performance of the query.
