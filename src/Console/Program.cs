@@ -422,10 +422,10 @@ namespace ConsoleSample
             #endregion
 
             #region Take
-            numbers = new[] { 1, 4, 10, 154, 999, 15 };
+            //numbers = new[] { 1, 4, 10, 154, 999, 15 };
 
-            var smallerThan20TakeWhile = numbers.TakeWhile(n => n < 20);
-            Printer.Print(smallerThan20TakeWhile, nameof(smallerThan20TakeWhile));
+            //var smallerThan20TakeWhile = numbers.TakeWhile(n => n < 20);
+            //Printer.Print(smallerThan20TakeWhile, nameof(smallerThan20TakeWhile));
 
             //var first3Numbers = numbers.Take(30);
             //Printer.Print(first3Numbers, nameof(first3Numbers));
@@ -443,10 +443,33 @@ namespace ConsoleSample
             //    .Take((int)(pets.Count() * 0.6));
             //Printer.Print(sixtyPercentOfPets, nameof(sixtyPercentOfPets));
 
-            var allPetsBefore30KilosPet = pets.TakeWhile(p => p.Weight < 30);
-            Printer.Print(allPetsBefore30KilosPet, nameof(allPetsBefore30KilosPet));
-           
+            //var allPetsBefore30KilosPet = pets.TakeWhile(p => p.Weight < 30);
+            //Printer.Print(allPetsBefore30KilosPet, nameof(allPetsBefore30KilosPet));
+            #endregion
 
+            #region Skip
+            //numbers = new[] { 1, 4, 10, 154, 999, 15 };
+
+            //var skipWhileSmallerThan20 = numbers.SkipWhile(n => n < 20);
+            //Printer.Print(skipWhileSmallerThan20, nameof(skipWhileSmallerThan20));
+            //var skip3Numbers = numbers.Skip(3);
+            //Printer.Print(skip3Numbers, nameof(skip3Numbers));
+
+            //var skipLast2Numbers = numbers.SkipLast(2);
+            //Printer.Print(skipLast2Numbers, nameof(skipLast2Numbers));
+
+            //var skipLast2WithTake = numbers
+            //    .Take(numbers.Count() - 2);
+            //Printer.Print(skipLast2WithTake, nameof(skipLast2WithTake));
+
+            //var secondHalfOfPets = pets.Skip(pets.Count()/2);
+            //Printer.Print(secondHalfOfPets, nameof(secondHalfOfPets));
+
+            //var secondPageOfPets = pets.Skip(2).Take(2);
+            //Printer.Print(secondPageOfPets, nameof(secondPageOfPets));
+
+            //var skipUntilHeavierThan30Kilos = pets.SkipWhile(p => p.Weight < 30);
+            //Printer.Print(skipUntilHeavierThan30Kilos, nameof(skipUntilHeavierThan30Kilos));
             #endregion
         }
 
