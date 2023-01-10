@@ -555,6 +555,35 @@ namespace ConsoleSample
             //var unionOfPets = pets2.Union(pets1, new PetEqualityById());
             //Printer.Print(unionOfPets, nameof(unionOfPets));
             #endregion
+
+            #region CollectionTypeChange
+            numbers = new[] { 1, 1, 2, 2, 2, 3 };
+            IEnumerable<long> longs = numbers.Cast<long>();
+
+            IEnumerable<PetType> allPetTypes = Enum.GetValues(typeof(PetType)).Cast<PetType>();
+            Printer.Print(allPetTypes, nameof(allPetTypes));
+
+            //int[] numbersArray = numbers.ToArray();
+            //List<int> arrayAsList = numbersArray.ToList();
+            //HashSet<int> hashSetNumbers = numbers.ToHashSet();
+            ////Printer.Print(hashSetNumbers, nameof(hashSetNumbers));
+
+            //var idToNameDictionary = pets.ToDictionary(
+            //    p => p.Id,
+            //    p => p.Name);
+            //Printer.Print(idToNameDictionary, nameof(idToNameDictionary));
+
+            //var petTypeToNamesLookup = pets.ToLookup(
+            //    p => p.PetType,
+            //    p => p.Name);
+            //Printer.Print(petTypeToNamesLookup, nameof(petTypeToNamesLookup));
+
+            //var verySpecificList = new VerySpecificList<int> { 1, 2, 3, 4 };
+            //var evenNumbers = verySpecificList
+            //    .AsEnumerable()
+            //    .Where(x => x % 2 == 0);
+            //Printer.Print(evenNumbers, nameof(evenNumbers));
+            #endregion
         }
 
 
@@ -627,6 +656,15 @@ namespace ConsoleSample
         public void Fuel()
         {
             Console.WriteLine("Fuelling my gas tank");
+        }
+    }
+
+    class VerySpecificList<T>: List<T>
+    {
+        public IEnumerable<T> Where(Func<T, bool> predicate)
+        {
+            throw new InvalidOperationException(
+                "I don't support filtering!");
         }
     }
 }

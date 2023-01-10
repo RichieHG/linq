@@ -176,3 +176,22 @@ This methos is used to *concatenate* 2 collections of the same type. **Doesn't R
 
 ## Union
  This methos is used to *concatenate* 2 collections of the same type. **Remove Duplicates** 
+
+ ## ToHashSet 
+ A HashSet is a collecton that enforce the elements to be unique.
+ 
+ Using this method we will transform our Collecton to HashSet, it means, the new collection will no contain duplicates.
+
+ ## ToDictionary
+ A Dictionary s a collection of Key-Value pairs, each Key is **unique**. For this reason if you will use ToDictionary method you have to defined a KEY that always be unique, this to avoid exceptions in you program.
+
+This method will crate a Dictionary of our collection. To do this we have to defined which data will be used as KEY and which other will be the VALUE. But also, we can skip the VALUE definition, and C# will understand the value is the whole object.
+
+## ToLookup
+A Lookup works similary as a Dictionary, but it allows you to save multiple values under the same Key. But also the KEY must be unique. But also, we can skip the VALUE definition, and C# will understand the value is the whole object.
+
+## AsEnumerable
+This method change a specific type of Collection to a IEnumerable<T> Collection and now we can use the other methods with this new Collection.
+
+
+
