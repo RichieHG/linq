@@ -27,7 +27,12 @@ namespace Exercises
             IEnumerable<News> newsCollection)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return newsCollection
+                .OrderByDescending(n => n.PublishingDate)
+                .Take(3)
+                .Union(
+                    newsCollection.Where(n => n.Priority == Priority.High)
+                );
         }
 
         //Coding Exercise 2
@@ -50,7 +55,12 @@ namespace Exercises
         public static string CleanWord(string word)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return string.Join("",
+                word
+                .Where(c => char.IsLetter(c))
+                .Concat(
+                    word.Where(c => !char.IsLetter(c)).Distinct()
+                ));
         }
 
         //Refactoring challenge
@@ -59,7 +69,12 @@ namespace Exercises
             IEnumerable<int> numbers1, IEnumerable<int> numbers2)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return numbers1
+                .Where(n => Math.Sqrt(n) % 1 == 0)
+                .Union(
+                    numbers2.Where(n => Math.Sqrt(n) % 1 == 0)
+                ).
+                OrderBy(n => n);
         }
 
         //do not modify this method

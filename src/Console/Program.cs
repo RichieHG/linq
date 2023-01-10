@@ -519,18 +519,41 @@ namespace ConsoleSample
             #endregion
 
             #region Preppend/Append
-            var numbersWith100 = numbers.Append(100);
-            Printer.Print(numbers, nameof(numbers));
-            Printer.Print(numbersWith100, nameof(numbersWith100));
+            //var numbersWith100 = numbers.Append(100);
+            //Printer.Print(numbers, nameof(numbers));
+            //Printer.Print(numbersWith100, nameof(numbersWith100));
 
-            var petsWithBluebell = pets.Prepend(
-                new Pet(0, "Bluebell", PetType.Dog, 25f));
-            Printer.Print(pets, nameof(pets));
-            Printer.Print(petsWithBluebell, nameof(petsWithBluebell));
+            //var petsWithBluebell = pets.Prepend(
+            //    new Pet(0, "Bluebell", PetType.Dog, 25f));
+            //Printer.Print(pets, nameof(pets));
+            //Printer.Print(petsWithBluebell, nameof(petsWithBluebell));
 
-            var originalGrades = new[] { "Bad", "Medium", "Good" };
-            var newGrades = originalGrades.Prepend("Terrible").Append("Excellent");
-            Printer.Print(newGrades, nameof(newGrades));
+            //var originalGrades = new[] { "Bad", "Medium", "Good" };
+            //var newGrades = originalGrades.Prepend("Terrible").Append("Excellent");
+            //Printer.Print(newGrades, nameof(newGrades));
+            #endregion
+            #region Concat/Union
+            //var numbers1 = new[] { 1, 2, 3, 4, 5 };
+            //var numbers2 = new[] { 4,5,6,7 };
+
+            //var allNumbers = numbers1.Concat(numbers2);
+            //Printer.Print(allNumbers, nameof(allNumbers));
+
+            //var allNumbersNoDuplicates = numbers1.Union(numbers2);
+            //Printer.Print(allNumbersNoDuplicates, nameof(allNumbersNoDuplicates));
+
+            //var pets1 = new[]
+            //{
+            //    new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+            //    new Pet(2,"Anthony", PetType.Cat, 2f)
+            //};
+            //var pets2 = new[]
+            //{
+            //    new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+            //};
+
+            //var unionOfPets = pets2.Union(pets1, new PetEqualityById());
+            //Printer.Print(unionOfPets, nameof(unionOfPets));
             #endregion
         }
 

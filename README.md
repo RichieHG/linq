@@ -170,3 +170,9 @@ We can use it when we have many types of objects that share the same interface
 
 ## Distinct
 In some cases we will need to declare a *comparer* (using *IEqualityComparer* as base interface) to be more explicit how we can make the comparison between objects. Remember as default config Contains uses the objects by references.
+
+## Concat
+This methos is used to *concatenate* 2 collections of the same type. **Doesn't Remove Duplicates** 
+
+## Union
+ This methos is used to *concatenate* 2 collections of the same type. **Remove Duplicates** 
