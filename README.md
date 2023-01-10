@@ -164,6 +164,9 @@ This method has an overload, which receive as parameter an integer which would b
 This method is commonly used with Ordered Collections to improve the performance of the query.
 
 ## OfType 
-This method filters an Enumarable acording the type defined into the call.
+This method filters an Enumarable according the type defined into the call.
 
 We can use it when we have many types of objects that share the same interface
+
+## Distinct
+In some cases we will need to declare a *comparer* (using *IEqualityComparer* as base interface) to be more explicit how we can make the comparison between objects. Remember as default config Contains uses the objects by references.

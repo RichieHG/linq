@@ -9,7 +9,7 @@ namespace LinqCourse.DataTypes
             return x.PetType.CompareTo(y.PetType);
         }
     }
-    public class PetCompareById : IEqualityComparer<Pet>
+    public class PetEqualityById : IEqualityComparer<Pet>
     {
         public bool Equals(Pet? x, Pet? y)
         {

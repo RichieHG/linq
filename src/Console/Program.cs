@@ -501,6 +501,25 @@ namespace ConsoleSample
             //var fuelables = flyables.OfType<IFuelable>();
             //Printer.Print(fuelables, nameof(fuelables));
             #endregion
+
+            #region Distinct
+            numbers = new[] { 10, 1, 10, 4, 17, 17, 122 };
+            var numbersNoDuplicates = numbers.Distinct();
+            Printer.Print(numbersNoDuplicates, nameof(numbersNoDuplicates));
+
+            pets = new[]
+            {
+                new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+                new Pet(1,"Hannibal", PetType.Fish, 1.1f)
+            };
+            //var petsNoDuplicates = pets.Distinct();
+            //Printer.Print(petsNoDuplicates, nameof(petsNoDuplicates));
+            var petsNoDuplicatesWithComparer = pets.Distinct(new PetEqualityById());
+            Printer.Print(petsNoDuplicatesWithComparer, nameof(petsNoDuplicatesWithComparer));
+
+
+
+            #endregion
         }
 
 
