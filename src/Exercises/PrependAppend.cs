@@ -29,7 +29,8 @@ namespace Exercises
         public static IEnumerable<string> AddStartAndEndMarkers(IEnumerable<string> words)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            var startMarkers = words.First() == "START" ? words : words.Prepend("START");
+            return startMarkers.Last() == "END" ? startMarkers : startMarkers.Append("END");
         }
 
         //Coding Exercise 2
@@ -52,7 +53,22 @@ namespace Exercises
             IEnumerable<int> numbers)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //if (numbers == null || !numbers.Any()) return Enumerable.Empty<int>();
+            //var first = numbers.First();
+            //var last = numbers.Last();
+
+            //var middleNumbers = numbers.Where(n => n != first && n != last);
+            //return first == last ? middleNumbers.Append(last) : middleNumbers.Prepend(first).Append(last);
+            if (numbers.Count() < 2) return numbers;
+
+            var f = numbers.First(); 
+            var l = numbers.Last();
+
+            return numbers
+                .Where(n => n != f)
+                .Prepend(f)
+                .Where(n => n != l)
+                .Append(l);
         }
 
         //Refactoring challenge
@@ -61,7 +77,7 @@ namespace Exercises
             IEnumerable<string> words)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return words.TakeWhile(w => w != "The end").Append("END");
         }
 
         //do not modify this method

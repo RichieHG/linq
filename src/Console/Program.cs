@@ -70,7 +70,7 @@ namespace ConsoleSample
             //OTHERS
             //DotNet6Improvements.Run();
 
-            var numbers = new[] { 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
+            var numbers = new[] { 1, 4, 10, 154, 999, 15 }; //{ 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
             var words = new[] { "a", "bb", "ccc", "dddd" };
             var pets = Data.Pets;
 
@@ -503,22 +503,34 @@ namespace ConsoleSample
             #endregion
 
             #region Distinct
-            numbers = new[] { 10, 1, 10, 4, 17, 17, 122 };
-            var numbersNoDuplicates = numbers.Distinct();
-            Printer.Print(numbersNoDuplicates, nameof(numbersNoDuplicates));
+            //numbers = new[] { 10, 1, 10, 4, 17, 17, 122 };
+            //var numbersNoDuplicates = numbers.Distinct();
+            //Printer.Print(numbersNoDuplicates, nameof(numbersNoDuplicates));
 
-            pets = new[]
-            {
-                new Pet(1,"Hannibal", PetType.Fish, 1.1f),
-                new Pet(1,"Hannibal", PetType.Fish, 1.1f)
-            };
-            //var petsNoDuplicates = pets.Distinct();
-            //Printer.Print(petsNoDuplicates, nameof(petsNoDuplicates));
-            var petsNoDuplicatesWithComparer = pets.Distinct(new PetEqualityById());
-            Printer.Print(petsNoDuplicatesWithComparer, nameof(petsNoDuplicatesWithComparer));
+            //pets = new[]
+            //{
+            //    new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+            //    new Pet(1,"Hannibal", PetType.Fish, 1.1f)
+            //};
+            ////var petsNoDuplicates = pets.Distinct();
+            ////Printer.Print(petsNoDuplicates, nameof(petsNoDuplicates));
+            //var petsNoDuplicatesWithComparer = pets.Distinct(new PetEqualityById());
+            //Printer.Print(petsNoDuplicatesWithComparer, nameof(petsNoDuplicatesWithComparer));
+            #endregion
 
+            #region Preppend/Append
+            var numbersWith100 = numbers.Append(100);
+            Printer.Print(numbers, nameof(numbers));
+            Printer.Print(numbersWith100, nameof(numbersWith100));
 
+            var petsWithBluebell = pets.Prepend(
+                new Pet(0, "Bluebell", PetType.Dog, 25f));
+            Printer.Print(pets, nameof(pets));
+            Printer.Print(petsWithBluebell, nameof(petsWithBluebell));
 
+            var originalGrades = new[] { "Bad", "Medium", "Good" };
+            var newGrades = originalGrades.Prepend("Terrible").Append("Excellent");
+            Printer.Print(newGrades, nameof(newGrades));
             #endregion
         }
 
