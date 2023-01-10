@@ -12,7 +12,7 @@ namespace Exercises
         public static int? GetTheFirstInteger(IEnumerable<object> objects)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return objects.OfType<int?>().FirstOrDefault();
         }
 
         //Coding Exercise 2
@@ -22,7 +22,9 @@ namespace Exercises
         public static bool AreAllStringsUpperCase(IEnumerable<object> objects)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //var strings = objects.OfType<string>();
+            //return strings.Count() > 0 ? strings.All(s => char.IsUpper(s[0])) : true;
+            return objects.OfType<string>().All(s => s.ToUpper() == s);
         }
 
         //Refactoring challenge
@@ -30,7 +32,8 @@ namespace Exercises
         public static DateTime? GetTheLatestDate_Refactored(IEnumerable<object> objects)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //return objects.OfType<DateTime?>().OrderBy(d => d).LastOrDefault();
+            return objects.OfType<DateTime?>().Max();
         }
 
         //do not modify this method

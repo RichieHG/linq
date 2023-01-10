@@ -162,3 +162,8 @@ This method has an overload, which receive as parameter an integer which would b
 
 ## Take
 This method is commonly used with Ordered Collections to improve the performance of the query.
+
+## OfType 
+This method filters an Enumarable acording the type defined into the call.
+
+We can use it when we have many types of objects that share the same interface

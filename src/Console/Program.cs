@@ -471,6 +471,36 @@ namespace ConsoleSample
             //var skipUntilHeavierThan30Kilos = pets.SkipWhile(p => p.Weight < 30);
             //Printer.Print(skipUntilHeavierThan30Kilos, nameof(skipUntilHeavierThan30Kilos));
             #endregion
+
+            #region OfType
+            //var objects = new object[]
+            //{
+            //    null,
+            //    1,
+            //    "all",
+            //    2,
+            //    "ducks",
+            //    new List<int>(),
+            //    "are",
+            //    "awesome",
+            //    true
+            //};
+
+            //var strings = objects.OfType<string>();
+            //Printer.Print(strings, nameof(strings));
+
+            //var flyables = new List<IFlyable>()
+            //{
+            //    new Bird(),
+            //    new Plane(),
+            //    new Helicopter()
+            //};
+
+            //var birds = flyables.OfType<Bird>();
+            //Printer.Print(birds, nameof(birds));
+            //var fuelables = flyables.OfType<IFuelable>();
+            //Printer.Print(fuelables, nameof(fuelables));
+            #endregion
         }
 
 
@@ -503,6 +533,46 @@ namespace ConsoleSample
                 if (areAllUpperCase) return true;
             }
             return false;
+        }
+    }
+
+
+    interface IFlyable
+    {
+        public void Fly();
+    }
+    interface IFuelable
+    {
+        public void Fuel();
+    }
+
+    class Bird : IFlyable
+    {
+        public void Fly()
+        {
+            Console.WriteLine("Flying by flapping my wings");
+        }
+    }
+    class Plane : IFlyable, IFuelable
+    {
+        public void Fly()
+        {
+            Console.WriteLine("Flying by jet propulsion");
+        }
+        public void Fuel()
+        {
+            Console.WriteLine("Fuelling my large gas tank");
+        }
+    }
+    class Helicopter : IFlyable, IFuelable
+    {
+        public void Fly()
+        {
+            Console.WriteLine("Flying by rotating my rotors");
+        }
+        public void Fuel()
+        {
+            Console.WriteLine("Fuelling my gas tank");
         }
     }
 }
