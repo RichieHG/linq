@@ -532,6 +532,7 @@ namespace ConsoleSample
             //var newGrades = originalGrades.Prepend("Terrible").Append("Excellent");
             //Printer.Print(newGrades, nameof(newGrades));
             #endregion
+
             #region Concat/Union
             //var numbers1 = new[] { 1, 2, 3, 4, 5 };
             //var numbers2 = new[] { 4,5,6,7 };
@@ -557,11 +558,11 @@ namespace ConsoleSample
             #endregion
 
             #region CollectionTypeChange
-            numbers = new[] { 1, 1, 2, 2, 2, 3 };
-            IEnumerable<long> longs = numbers.Cast<long>();
+            //numbers = new[] { 1, 1, 2, 2, 2, 3 };
+            //IEnumerable<long> longs = numbers.Cast<long>();
 
-            IEnumerable<PetType> allPetTypes = Enum.GetValues(typeof(PetType)).Cast<PetType>();
-            Printer.Print(allPetTypes, nameof(allPetTypes));
+            //IEnumerable<PetType> allPetTypes = Enum.GetValues(typeof(PetType)).Cast<PetType>();
+            //Printer.Print(allPetTypes, nameof(allPetTypes));
 
             //int[] numbersArray = numbers.ToArray();
             //List<int> arrayAsList = numbersArray.ToList();
@@ -583,6 +584,40 @@ namespace ConsoleSample
             //    .AsEnumerable()
             //    .Where(x => x % 2 == 0);
             //Printer.Print(evenNumbers, nameof(evenNumbers));
+            #endregion
+
+            #region Select
+            //numbers = new[] { 10, 1, 4, 17, 122 };
+            //var doubledNumbers = numbers.Select(n => n * 2);
+            //Printer.Print(doubledNumbers, nameof(doubledNumbers));
+
+            //var toUpperCase = words.Select(n => n.ToUpper());
+            //Printer.Print(toUpperCase, nameof(toUpperCase));
+
+            //IEnumerable<string> numbersAsStrings = numbers.Select(n => n.ToString());
+            //Printer.Print(numbersAsStrings, nameof(numbersAsStrings));
+
+            //var numberedWords = words.Select(
+            //    (word, index) => $"{index + 1}. {word}");
+            //Printer.Print(numberedWords, nameof(numberedWords));
+
+            //var weights = pets.Select(p => p.Weight);
+            //Printer.Print(weights, nameof(weights));
+
+            //var heavierPetTypes = pets
+            //    .Where(p => p.Weight > 4)
+            //    .Select(p => p.PetType)
+            //    .Distinct();
+            //Printer.Print(heavierPetTypes, nameof(heavierPetTypes));
+
+            //var petsInitials = pets
+            //    .Select(p => p.Name[0] + ".")
+            //    .OrderBy(n => n);
+            //Printer.Print(petsInitials, nameof(petsInitials));
+
+            //var petsData = pets.Select(p =>
+            //    $"Pet named {p.Name}, of type {p.PetType} and weight {p.Weight}");
+            //Printer.Print(petsData, nameof(petsData));
             #endregion
         }
 

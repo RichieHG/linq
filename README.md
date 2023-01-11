@@ -193,5 +193,11 @@ A Lookup works similary as a Dictionary, but it allows you to save multiple valu
 ## AsEnumerable
 This method change a specific type of Collection to a IEnumerable<T> Collection and now we can use the other methods with this new Collection.
 
+## Cast
+This method change the type (CASTING) of each element of the collection. If any element can't be cast, all the execution will fail.
+
+## Select
+Project each element of a collection into a new form. It means that the lambda expression will be apply to each element of the collection to produce a new collection.
+
 
 
