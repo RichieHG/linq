@@ -18,7 +18,9 @@ namespace Exercises
             HashSet<int> numbers)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return numbers.SelectMany(
+                _ => numbers,
+                (number1, number2) => $"{number1},{number2}");
         }
 
         //Coding Exercise 2
@@ -54,7 +56,11 @@ namespace Exercises
             IEnumerable<Student> students)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return students.SelectMany(student => student.Marks,
+                (student, mark) => new { student, mark })
+                .OrderByDescending(t => t.mark)
+                .ThenBy(t => t.student.Name)
+                .Select(t => $"{t.student.Name}: {t.mark}").Take(5);
         }
 
         //Refactoring challenge
@@ -63,7 +69,11 @@ namespace Exercises
             IEnumerable<Point> starts, IEnumerable<Point> ends)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return starts.SelectMany(_ => ends,
+                (startPoint, endPoint) => new { 
+                    Key = $"Start: ({startPoint}), End: ({endPoint})", 
+                    Value = SegmentLength(startPoint, endPoint)
+                }).ToDictionary(kv => kv.Key, kv => kv.Value);
         }
 
         //do not modify this method

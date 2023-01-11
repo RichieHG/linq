@@ -11,6 +11,22 @@ namespace ConsoleSample
         {
             return input.Split("\n").Length;
         }
+
+        public static IEnumerable<TResult> OurSelectMany<TSource, TResult>(
+           this IEnumerable<TSource> source,
+           Func<TSource, IEnumerable<TResult>> selector)
+        {
+            var results = new List<TResult>();
+            foreach (var element in source)
+            {
+                var innerCollection = selector(element);
+                foreach (var innerElement in innerCollection)
+                {
+                    results.Add(innerElement);
+                }
+            }
+            return results;
+        }
     }
 
     public class Person
@@ -619,6 +635,83 @@ namespace ConsoleSample
             //    $"Pet named {p.Name}, of type {p.PetType} and weight {p.Weight}");
             //Printer.Print(petsData, nameof(petsData));
             #endregion
+
+            #region SelectMany
+            var people = new[]
+            {
+                new PetOwner(1, "Jhon", new[]
+                {
+                    pets.ElementAt(0),
+                    pets.ElementAt(1)
+                }),
+                new PetOwner(1, "Jack", new[]
+                {
+                    pets.ElementAt(2)
+                }),
+                new PetOwner(1, "Stephanie", new[]
+                {
+                    pets.ElementAt(3),
+                    pets.ElementAt(4),
+                    pets.ElementAt(5)
+                }),
+            };
+            //var petsWithOwner = people
+            //    .Where(p => p.Name.StartsWith('J'))
+            //    .SelectMany(p => p.Pets)
+            //    .Select(p => p.Name);
+            //Printer.Print(petsWithOwner, nameof(petsWithOwner));
+
+            var nestedListOfNumbers = new List<List<int>>
+            {
+                new List<int> {1,2,3},
+                new List<int> {4,5,6},
+                new List<int> {5,6}
+            };
+            var veryNestedListOfNumbers = new List<List<List<int>>>
+            {
+                new List<List<int>>
+                {
+                    new List<int> {1,2,3},
+                    new List<int> {4,5,6},
+                    new List<int> {5,6}
+                },
+                new List<List<int>>
+                {
+                    new List<int> {10,12,13},
+                    new List<int> {14,15}
+                }
+
+            };
+
+            //var sum = nestedListOfNumbers.SelectMany(n => n).Sum();
+            //Printer.Print(sum, nameof(sum));
+
+            //var allNumbers = veryNestedListOfNumbers
+            //    .SelectMany(innerList => innerList)
+            //    .SelectMany(innerInnerList => innerInnerList);
+            //Printer.Print(allNumbers, nameof(allNumbers));
+
+            //var ownerPetPairsInfo = people
+            //    .SelectMany(person => person.Pets,
+            //    (person, pet) => $"{person.Name} is the owner of {pet.Name}");
+            //Printer.Print(ownerPetPairsInfo, nameof(ownerPetPairsInfo));
+
+            numbers = new[] { 1, 2, 3 };
+            var letters = new[] { 'A', 'B', 'C' };
+
+            //var carthesianProduct = new List<string>();
+            //foreach(var number in numbers)
+            //{
+            //    foreach(var letter in letters)
+            //    {
+            //        carthesianProduct.Add($"{number},{letter}");
+            //    }
+            //}
+            var carthesianProduct = numbers.SelectMany(
+                _ => letters, //We dont need param number because is not necessary
+                (number, letter) => $"{number},{letter}");
+            Printer.Print(carthesianProduct, nameof(carthesianProduct));
+            #endregion
         }
 
 
@@ -652,6 +745,7 @@ namespace ConsoleSample
             }
             return false;
         }
+
     }
 
 
@@ -694,7 +788,7 @@ namespace ConsoleSample
         }
     }
 
-    class VerySpecificList<T>: List<T>
+    class VerySpecificList<T> : List<T>
     {
         public IEnumerable<T> Where(Func<T, bool> predicate)
         {

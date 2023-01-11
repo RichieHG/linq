@@ -199,5 +199,17 @@ This method change the type (CASTING) of each element of the collection. If any 
 ## Select
 Project each element of a collection into a new form. It means that the lambda expression will be apply to each element of the collection to produce a new collection.
 
+This method allow us to change the type of the collection.
+
+Also, this method apply the lambda expression to each element of the collection and put it into the result collection.
+
+## SelectMany
+This method project each element of a collection to IEnumerable(T) and flattens the resulting into one result collection.
+
+Executes nested foreach loops. It's most to use to Flatten the nested collections.
+
+the overloaded version of the SelectMany method, which gives us access to both the currently processed element of the "outer"* collection (number1) and to the currently processed element of the "inner"* collection (number2). In our case, both inner and outer collections are the same.
 
 
+
+*the "inner" and "outer" collections refer to the collections processed by the inner and the outer loops of the nested foreach loop which is used by the SelectMany method.
