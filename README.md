@@ -213,3 +213,10 @@ the overloaded version of the SelectMany method, which gives us access to both t
 
 
 *the "inner" and "outer" collections refer to the collections processed by the inner and the outer loops of the nested foreach loop which is used by the SelectMany method.
+
+## Generating Collections
+We can use:
+- **Enumerable.Empty<T>** to create a Collection of type T
+- **Repeat** to create a Collectiond and fill it repeating 'n' times a element.
+- **Range** to generate collection of incrementing integers; where the second param indicates the size of our final collection i.e. Range(10,40) it would result in a collection from 10 to 49
+- **DefaultEmpty** to create a copy of a non empty collection passed as input or to create an empty collection if we pass an empty input.

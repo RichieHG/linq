@@ -637,51 +637,51 @@ namespace ConsoleSample
             #endregion
 
             #region SelectMany
-            var people = new[]
-            {
-                new PetOwner(1, "Jhon", new[]
-                {
-                    pets.ElementAt(0),
-                    pets.ElementAt(1)
-                }),
-                new PetOwner(1, "Jack", new[]
-                {
-                    pets.ElementAt(2)
-                }),
-                new PetOwner(1, "Stephanie", new[]
-                {
-                    pets.ElementAt(3),
-                    pets.ElementAt(4),
-                    pets.ElementAt(5)
-                }),
-            };
+            //var people = new[]
+            //{
+            //    new PetOwner(1, "Jhon", new[]
+            //    {
+            //        pets.ElementAt(0),
+            //        pets.ElementAt(1)
+            //    }),
+            //    new PetOwner(1, "Jack", new[]
+            //    {
+            //        pets.ElementAt(2)
+            //    }),
+            //    new PetOwner(1, "Stephanie", new[]
+            //    {
+            //        pets.ElementAt(3),
+            //        pets.ElementAt(4),
+            //        pets.ElementAt(5)
+            //    }),
+            //};
             //var petsWithOwner = people
             //    .Where(p => p.Name.StartsWith('J'))
             //    .SelectMany(p => p.Pets)
             //    .Select(p => p.Name);
             //Printer.Print(petsWithOwner, nameof(petsWithOwner));
 
-            var nestedListOfNumbers = new List<List<int>>
-            {
-                new List<int> {1,2,3},
-                new List<int> {4,5,6},
-                new List<int> {5,6}
-            };
-            var veryNestedListOfNumbers = new List<List<List<int>>>
-            {
-                new List<List<int>>
-                {
-                    new List<int> {1,2,3},
-                    new List<int> {4,5,6},
-                    new List<int> {5,6}
-                },
-                new List<List<int>>
-                {
-                    new List<int> {10,12,13},
-                    new List<int> {14,15}
-                }
+            //var nestedListOfNumbers = new List<List<int>>
+            //{
+            //    new List<int> {1,2,3},
+            //    new List<int> {4,5,6},
+            //    new List<int> {5,6}
+            //};
+            //var veryNestedListOfNumbers = new List<List<List<int>>>
+            //{
+            //    new List<List<int>>
+            //    {
+            //        new List<int> {1,2,3},
+            //        new List<int> {4,5,6},
+            //        new List<int> {5,6}
+            //    },
+            //    new List<List<int>>
+            //    {
+            //        new List<int> {10,12,13},
+            //        new List<int> {14,15}
+            //    }
 
-            };
+            //};
 
             //var sum = nestedListOfNumbers.SelectMany(n => n).Sum();
             //Printer.Print(sum, nameof(sum));
@@ -696,8 +696,8 @@ namespace ConsoleSample
             //    (person, pet) => $"{person.Name} is the owner of {pet.Name}");
             //Printer.Print(ownerPetPairsInfo, nameof(ownerPetPairsInfo));
 
-            numbers = new[] { 1, 2, 3 };
-            var letters = new[] { 'A', 'B', 'C' };
+            //numbers = new[] { 1, 2, 3 };
+            //var letters = new[] { 'A', 'B', 'C' };
 
             //var carthesianProduct = new List<string>();
             //foreach(var number in numbers)
@@ -707,11 +707,41 @@ namespace ConsoleSample
             //        carthesianProduct.Add($"{number},{letter}");
             //    }
             //}
-            var carthesianProduct = numbers.SelectMany(
-                _ => letters, //We dont need param number because is not necessary
-                (number, letter) => $"{number},{letter}");
-            Printer.Print(carthesianProduct, nameof(carthesianProduct));
+            //var carthesianProduct = numbers.SelectMany(
+            //    _ => letters, //We dont need param number because is not necessary
+            //    (number, letter) => $"{number},{letter}");
+            //Printer.Print(carthesianProduct, nameof(carthesianProduct));
             #endregion
+            #region GeneratingNewCollections
+            //var emptyInts = Enumerable.Empty<int>();
+            //Printer.Print(emptyInts, nameof(emptyInts));
+
+            //var tenCopiesOf100 = Enumerable.Repeat(100, 10);
+            //Printer.Print(tenCopiesOf100, nameof(tenCopiesOf100));
+
+            //var foxes = Enumerable.Repeat("fox", 3)
+            //    .Select((word, index) => $"{index + 1}. {word}");
+            //Printer.Print(foxes, nameof(foxes));
+
+            //var from10to40 = Enumerable.Range(10, 21);
+            //Printer.Print(from10to40, nameof(from10to40));
+
+            //var powersOf2 = Enumerable.Range(0, 10)
+            //    .Select(power => Math.Pow(2, power));
+            //Printer.Print(powersOf2, nameof(powersOf2));
+
+            //var letters = Enumerable.Range('A', 10)
+            //    .Select(n => (char)n);
+            //Printer.Print(letters, nameof(letters));
+
+            //var nonEmptyNumbers = new[] { 1, 2, 3 };
+            //var defaultIfEmpty1 = nonEmptyNumbers.DefaultIfEmpty();
+            //Printer.Print(defaultIfEmpty1, nameof(defaultIfEmpty1));
+            //var emptuNumbers = new int[0];
+            //var defaultIfEmpty2 = emptuNumbers.DefaultIfEmpty(99);
+            //Printer.Print(defaultIfEmpty2, nameof(defaultIfEmpty2));
+            #endregion
+
         }
 
 

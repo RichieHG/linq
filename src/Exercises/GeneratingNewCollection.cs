@@ -29,7 +29,16 @@ namespace Exercises
             int initialYear, int yearsCount)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //return Enumerable.Range(initialYear, yearsCount)
+            //    .Select(y => new
+            //    {
+            //        Year = y,
+            //        Day = DateTime.Parse($"12/31/{y}").DayOfWeek.ToString()
+            //    }).ToDictionary(y => y.Year, y => y.Day);
+            return Enumerable
+           .Range(initialYear, yearsCount)
+           .ToDictionary(year => year,
+           year => new DateTime(year, 12, 31).DayOfWeek.ToString());
         }
 
         //Coding Exercise 2
@@ -54,7 +63,10 @@ namespace Exercises
         public static string BuildTree(int levels)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return string.Join('\n',
+                    Enumerable.Range(1, levels)
+                    .Select(i => string.Join("",Enumerable.Repeat('*',i)))
+                ).Trim();
         }
 
         //Refactoring challenge
@@ -62,7 +74,9 @@ namespace Exercises
         public static IEnumerable<string> DoubleLetters_Refactored(int countOfLetters)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            var letters = Enumerable.Range('A', Math.Min(countOfLetters, 26));
+            return letters.SelectMany(_ => letters,
+            (letter1, letter2) => $"{(char)letter1}{(char)letter2}");
         }
 
         //do not modify this method
