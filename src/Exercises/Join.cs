@@ -39,7 +39,20 @@ namespace Exercises
              IEnumerable<House> houses)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+           return people.GroupJoin(houses,
+                person => person.Id,
+                house => house.OwnerId,
+                (person, houses) => new
+                {
+                    Person = person,
+                    Houses =houses.DefaultIfEmpty()
+                })
+                .SelectMany(personHousePair => personHousePair.Houses,
+                (personHousePair, house) =>
+                {
+                    return $"Person: {personHousePair.Person}" +
+                    $" owns {house?.Adderss ?? "no house"}";
+                });
         }
 
         //Coding Exercise 2
@@ -87,7 +100,19 @@ namespace Exercises
             IEnumerable<Order> orders)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return orders.Join(customers,
+                order => order.CustomerId,
+                costumer => costumer.Id,
+                (order,costumer) => new
+                {
+                    Order = order,
+                    Costumer = costumer
+                })
+                .Join(items,
+                orderCostumerPair => orderCostumerPair.Order.ItemId,
+                item => item.Id,
+                (orderCostimerPair, item) => $"Customer: {orderCostimerPair.Costumer.Name}," +
+                $" Item: {item.Name}, Count: {orderCostimerPair.Order.Count}");
         }
 
         //Refactoring challenge
@@ -97,7 +122,12 @@ namespace Exercises
             IEnumerable<House> houses)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return houses.Join(people,
+                house => house.OwnerId,
+                person => person.Id,
+                (house, person) => (house, person))
+                .ToDictionary(housePersonPair => housePersonPair.house,
+                housePersonPair => housePersonPair.person);
         }
 
         //do not modify this method

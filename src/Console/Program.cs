@@ -89,24 +89,9 @@ namespace ConsoleSample
             var numbers = new[] { 1, 4, 10, 154, 999, 15 }; //{ 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
             var words = new[] { "a", "bb", "ccc", "dddd" };
             var pets = Data.Pets;
-            var people = new[]
-            {
-                new PetOwner(1, "Jhon", new[]
-                {
-                    pets.ElementAt(0),
-                    pets.ElementAt(1)
-                }),
-                new PetOwner(1, "Jack", new[]
-                {
-                    pets.ElementAt(2)
-                }),
-                new PetOwner(1, "Stephanie", new[]
-                {
-                    pets.ElementAt(3),
-                    pets.ElementAt(4),
-                    pets.ElementAt(5)
-                }),
-            };
+            var people = Data.People;
+            var clinicAppointments = Data.VeterinaryClinicAppointments;
+            var clinics = Data.VeterinaryClinics;
 
             #region Introduction to LINQ
             //var wordsNoUpperCase = new string[] {
@@ -798,32 +783,32 @@ namespace ConsoleSample
 
             //var exclusiveToNumbers1 = numbers1.Except(numbers2);
             //Printer.Print(exclusiveToNumbers1, nameof(exclusiveToNumbers1));
-            var pets1 = new[]
-            {
-                new Pet(1,"Hannibal", PetType.Fish, 1.1f),
-                new Pet(2,"Anthony", PetType.Cat, 2f)
-            };
+            //var pets1 = new[]
+            //{
+            //    new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+            //    new Pet(2,"Anthony", PetType.Cat, 2f)
+            //};
 
-            var pets2 = new[]
-            {
-                new Pet(1,"Hannibal", PetType.Fish, 1.1f),
-                new Pet(2,"Anthony", PetType.Cat, 2f)
-            };
-            var pets3 = new[]
-            {
-                new Pet(2,"Anthony", PetType.Cat, 2f),
-                new Pet(1,"Hannibal", PetType.Fish, 1.1f),
-                
-            };
+            //var pets2 = new[]
+            //{
+            //    new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+            //    new Pet(2,"Anthony", PetType.Cat, 2f)
+            //};
+            //var pets3 = new[]
+            //{
+            //    new Pet(2,"Anthony", PetType.Cat, 2f),
+            //    new Pet(1,"Hannibal", PetType.Fish, 1.1f),
 
-            var arePetsEqualWithoutComparer = pets1.SequenceEqual(pets2);
-            Printer.Print(arePetsEqualWithoutComparer, nameof(arePetsEqualWithoutComparer));
+            //};
 
-            var arePetsEqual1 = pets1.SequenceEqual(pets2, new PetEqualityByIdComparer());
-            Printer.Print(arePetsEqual1, nameof(arePetsEqual1));
+            //var arePetsEqualWithoutComparer = pets1.SequenceEqual(pets2);
+            //Printer.Print(arePetsEqualWithoutComparer, nameof(arePetsEqualWithoutComparer));
 
-            var arePetsEqual2 = pets1.SequenceEqual(pets3, new PetEqualityByIdComparer());
-            Printer.Print(arePetsEqual2, nameof(arePetsEqual2));
+            //var arePetsEqual1 = pets1.SequenceEqual(pets2, new PetEqualityByIdComparer());
+            //Printer.Print(arePetsEqual1, nameof(arePetsEqual1));
+
+            //var arePetsEqual2 = pets1.SequenceEqual(pets3, new PetEqualityByIdComparer());
+            //Printer.Print(arePetsEqual2, nameof(arePetsEqual2));
 
             //var petsIntersection = pets1.Intersect(pets2);
             //Printer.Print(petsIntersection, nameof(petsIntersection));
@@ -855,16 +840,60 @@ namespace ConsoleSample
             //    .Except(bob.Pets.Intersect(alice.Pets));
             //Printer.Print(petsWithOneOwnerOnly, nameof(petsWithOneOwnerOnly));
 
-            var numbers3 = new[] {1,2,3,4 };
-            var numbers4 = new[] {1,2,3,4 };
+            //var numbers3 = new[] {1,2,3,4 };
+            //var numbers4 = new[] {1,2,3,4 };
 
-            bool areEqual1 = numbers3.SequenceEqual(numbers4);
-            Printer.Print(areEqual1, nameof(areEqual1));
+            //bool areEqual1 = numbers3.SequenceEqual(numbers4);
+            //Printer.Print(areEqual1, nameof(areEqual1));
 
-            var numbers5 = numbers3.Reverse();
-            
-            bool areEqual2 = numbers3.SequenceEqual(numbers5);
-            Printer.Print(areEqual2, nameof(areEqual2));
+            //var numbers5 = numbers3.Reverse();
+
+            //bool areEqual2 = numbers3.SequenceEqual(numbers5);
+            //Printer.Print(areEqual2, nameof(areEqual2));
+            #endregion
+
+            #region Join
+            //var petsAppointmentsInfo = pets.Join(clinicAppointments,
+            //    pet => pet.Id,
+            //    appointment => appointment.PetId,
+            //    (pet, appointment) => $"{pet.Name} has an appointment on " +
+            //    $"{appointment.Date}");
+            //Printer.Print(petsAppointmentsInfo, nameof(petsAppointmentsInfo));
+
+            //var petsAppointmentsMoreInfo = pets.Join(clinicAppointments,
+            //    pet => pet.Id,
+            //    appointment => appointment.PetId,
+            //    (pet, appointment) => (pet,appointment))
+            //    .Join(clinics,
+            //    appointmentPet => appointmentPet.appointment.ClinicId,
+            //    clinic => clinic.Id,
+            //    (appointmentPet, clinic) => $"Pet {appointmentPet.pet.Name} has an appointment on " +
+            //    $"{appointmentPet.appointment.Date} in {clinic.Name}");
+            //Printer.Print(petsAppointmentsMoreInfo, nameof(petsAppointmentsMoreInfo));
+
+            //var groupedPetsAppointments = pets.GroupJoin(clinicAppointments,
+            //    pet => pet.Id,
+            //    appointment => appointment.PetId,
+            //    (pet, appointments) => 
+            //    {
+            //        var formattedAppointments = string.Join(", ", appointments
+            //            .Select(appointment => appointment.Date));
+            //        return $"Pet {pet.Name} has appointments on {formattedAppointments}";
+            //    });
+            //Printer.Print(groupedPetsAppointments, nameof(groupedPetsAppointments));
+
+            var leftJoin = pets.GroupJoin(clinicAppointments,
+                pet => pet.Id,
+                appointment => appointment.PetId,
+                (pet, appointments) => new
+                {
+                    Pet = pet,
+                    Appointments = appointments.DefaultIfEmpty()
+                })
+                .SelectMany( petAppointmentsPair => petAppointmentsPair.Appointments,
+                (petAppointmentsPait, singleAppointment) => $"Pet {petAppointmentsPait.Pet.Name} has " +
+                $"an appointment on {singleAppointment?.Date}");
+            Printer.Print(leftJoin, nameof(leftJoin));
             #endregion
         }
 

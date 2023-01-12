@@ -241,3 +241,9 @@ As in Contains method, to compare objects we have to create our own comparer (IE
 
 ## SequenceEqual
 Checks if two collections are equal.
+
+## Join
+* Inner Join: returns those records that have matching values in both collections (Join)
+* Left Join: returns all records for the left collection and the matching entries from the right collection (if they exist) (GroupJoin)
+
+
