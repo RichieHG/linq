@@ -229,3 +229,15 @@ Is used to group element of collection by some criteria.
 As result it creates a collection of groupings with each group having a key and a collection of elements belonging to this group.
 
 This method has an overloaded method which, give us access to the key and the grouped values at same time.
+
+## Intersect 
+Finds the intersection of two collections, it means returns each element that appear in both of them.
+
+As in Contains method, to compare objects we have to create our own comparer.
+## Except
+Produce the difference between of two collections, and returns only the elements that appear in the first one and doesn't do it in the second one.
+
+As in Contains method, to compare objects we have to create our own comparer (IEquality).
+
+## SequenceEqual
+Checks if two collections are equal.

@@ -25,7 +25,12 @@ namespace Exercises
             IEnumerable<string> words2)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //return words1.Count(
+            //    word1 => words2.Any(
+            //        word2 => word2.ToUpper() == word1.ToUpper()));
+            return words1.Select(word => word.ToLower())
+                .Intersect(words2.Select(word => word.ToLower()))
+                .Count();
         }
 
         //Coding Exercise 2
@@ -46,7 +51,12 @@ namespace Exercises
             IEnumerable<int> numbers2)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //return numbers1.Union(numbers2)
+            //.Except(numbers1.Intersect(numbers2)).OrderBy(number => number);
+            return numbers1.Except(numbers2)
+                .Concat(
+                    numbers2.Except(numbers1))
+                .OrderBy(n => n);
         }
 
         //Refactoring challenge
@@ -56,7 +66,24 @@ namespace Exercises
                 Route route1, Route route2)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            var sharedPoints = route1.RoutePoints.Intersect(route2.RoutePoints);
+            var unsharedPoints = route1.RoutePoints.Concat(route2.RoutePoints).Except(sharedPoints)
+                    .Select(routePoint => $"Unshared point " +
+                            $"{routePoint.Name}" +
+                            $" at {routePoint.Point}");
+            //var unsharedPointsR1 = route1.RoutePoints.Except(route2.RoutePoints)
+            //    .Select(routePoint => $"Unshared point " +
+            //                $"{routePoint.Name}" +
+            //                $" at {routePoint.Point}");
+            //var unsharedPointsR2 = route2.RoutePoints.Except(route1.RoutePoints)
+            //   .Select(routePoint => $"Unshared point " +
+            //               $"{routePoint.Name}" +
+            //               $" at {routePoint.Point}");
+            return sharedPoints
+                .Select(routePoint => $"Shared point " +
+                            $"{routePoint.Name}" +
+                            $" at {routePoint.Point}")
+                .Concat(unsharedPoints);
         }
 
         //do not modify this method

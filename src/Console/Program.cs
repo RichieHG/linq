@@ -766,27 +766,105 @@ namespace ConsoleSample
             //    lookup => lookup.Sum());
             //Printer.Print(sumsOfWeightsPerType2, nameof(sumsOfWeightsPerType2));
 
-            var personsInitialToPetsMapping = people
-                .GroupBy(p => p.Name.First())
-                .ToDictionary( 
-                    grouping => grouping.Key + ".",
-                    grouping => string.Join(", ", grouping
-                        .SelectMany(p => p.Pets
-                            .Select(pet => pet.Name))));
+            //var personsInitialToPetsMapping = people
+            //    .GroupBy(p => p.Name.First())
+            //    .ToDictionary( 
+            //        grouping => grouping.Key + ".",
+            //        grouping => string.Join(", ", grouping
+            //            .SelectMany(p => p.Pets
+            //                .Select(pet => pet.Name))));
             //Printer.Print(personsInitialToPetsMapping, nameof(personsInitialToPetsMapping));
 
-            var petsGroupedByFloorWeight = pets.GroupBy(pet => Math.Floor(pet.Weight),
-                (key, pets) => new
-                {
-                    WeightFloor = key,
-                    MinWeight = pets.Min(pet => pet.Weight),
-                    MaxWeight = pets.Max(pet => pet.Weight)
-                })
-                .OrderBy(group => group.WeightFloor)
-                .Select(group => $"Weight floor: {group.WeightFloor}, " +
-                $"Min weight: {group.MinWeight}," +
-                $"Max weight: {group.MaxWeight}");
-            Printer.Print(petsGroupedByFloorWeight, nameof(petsGroupedByFloorWeight));
+            //var petsGroupedByFloorWeight = pets.GroupBy(pet => Math.Floor(pet.Weight),
+            //    (key, pets) => new
+            //    {
+            //        WeightFloor = key,
+            //        MinWeight = pets.Min(pet => pet.Weight),
+            //        MaxWeight = pets.Max(pet => pet.Weight)
+            //    })
+            //    .OrderBy(group => group.WeightFloor)
+            //    .Select(group => $"Weight floor: {group.WeightFloor}, " +
+            //    $"Min weight: {group.MinWeight}," +
+            //    $"Max weight: {group.MaxWeight}");
+            //Printer.Print(petsGroupedByFloorWeight, nameof(petsGroupedByFloorWeight));
+            #endregion
+
+            #region IntersectAndExcept
+            //var numbers1 = new[] { 1, 2, 3, 4, 5, 6 };
+            //var numbers2 = new[] { 4, 5, 6, 7, 8, 10 };
+
+            //var numbersIntersection = numbers1.Intersect(numbers2);
+            //Printer.Print(numbersIntersection, nameof(numbersIntersection));
+
+            //var exclusiveToNumbers1 = numbers1.Except(numbers2);
+            //Printer.Print(exclusiveToNumbers1, nameof(exclusiveToNumbers1));
+            var pets1 = new[]
+            {
+                new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+                new Pet(2,"Anthony", PetType.Cat, 2f)
+            };
+
+            var pets2 = new[]
+            {
+                new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+                new Pet(2,"Anthony", PetType.Cat, 2f)
+            };
+            var pets3 = new[]
+            {
+                new Pet(2,"Anthony", PetType.Cat, 2f),
+                new Pet(1,"Hannibal", PetType.Fish, 1.1f),
+                
+            };
+
+            var arePetsEqualWithoutComparer = pets1.SequenceEqual(pets2);
+            Printer.Print(arePetsEqualWithoutComparer, nameof(arePetsEqualWithoutComparer));
+
+            var arePetsEqual1 = pets1.SequenceEqual(pets2, new PetEqualityByIdComparer());
+            Printer.Print(arePetsEqual1, nameof(arePetsEqual1));
+
+            var arePetsEqual2 = pets1.SequenceEqual(pets3, new PetEqualityByIdComparer());
+            Printer.Print(arePetsEqual2, nameof(arePetsEqual2));
+
+            //var petsIntersection = pets1.Intersect(pets2);
+            //Printer.Print(petsIntersection, nameof(petsIntersection));
+
+            //var petsIntersectionCustomComparer = pets1.Intersect(pets2, new PetEqualityByIdComparer());
+            //Printer.Print(petsIntersectionCustomComparer, nameof(petsIntersectionCustomComparer));
+
+            //var alice = new PetOwner(1, "Alice", new[]
+            //{
+            //    pets.ElementAt(0),
+            //    pets.ElementAt(2),
+            //    pets.ElementAt(3)
+            //});
+            //var bob = new PetOwner(2, "Bob", new[]
+            //{
+            //    pets.ElementAt(0),
+            //    pets.ElementAt(1),
+            //    pets.ElementAt(2)
+            //});
+
+
+            //var sharedPets = bob.Pets.Intersect(alice.Pets);
+            //Printer.Print(sharedPets, nameof(sharedPets));
+
+            //var onlyBobPets = bob.Pets.Except(alice.Pets);
+            //Printer.Print(onlyBobPets, nameof(onlyBobPets));
+
+            //var petsWithOneOwnerOnly = bob.Pets.Concat(alice.Pets)
+            //    .Except(bob.Pets.Intersect(alice.Pets));
+            //Printer.Print(petsWithOneOwnerOnly, nameof(petsWithOneOwnerOnly));
+
+            var numbers3 = new[] {1,2,3,4 };
+            var numbers4 = new[] {1,2,3,4 };
+
+            bool areEqual1 = numbers3.SequenceEqual(numbers4);
+            Printer.Print(areEqual1, nameof(areEqual1));
+
+            var numbers5 = numbers3.Reverse();
+            
+            bool areEqual2 = numbers3.SequenceEqual(numbers5);
+            Printer.Print(areEqual2, nameof(areEqual2));
             #endregion
         }
 
