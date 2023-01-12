@@ -30,7 +30,17 @@ namespace Exercises
         public static char? GetTheMostFrequentCharacter(string text)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return string.IsNullOrEmpty(text) ?
+                null :
+                text.ToLower().GroupBy(letter => letter,
+                (key, groupedLetter) => new
+                {
+                    Key = key,
+                    Frecuency = groupedLetter.Count(),
+                    Index = text.ToLower().IndexOf(key)
+                })
+                .OrderByDescending(g => g.Frecuency)
+                .ThenBy(g => g.Index).First().Key;
         }
 
         //Coding Exercise 2
@@ -54,15 +64,41 @@ namespace Exercises
         public static PetType? FindTheHeaviestPetType(IEnumerable<Pet> pets)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //return pets.Any() ? pets.GroupBy(pet =>
+            //    pet.PetType,
+            //    (key, petsByGroup) => (type: key,average:petsByGroup.Average(p => p.Weight)))
+            //    .OrderByDescending(petType => petType.average)
+            //    .Select(petGroup => petGroup.type).First() : 
+            //    null;
+            //return pets.Any() ? pets.GroupBy(pet =>
+            //    pet.PetType,
+            //    (key, petsByGroup) => (type: key,average:petsByGroup.Average(p => p.Weight)))
+            //    .OrderByDescending(petType => petType.average).First().type : 
+            //    null;
+            return pets.Any() ?
+                pets.GroupBy(pet => pet.PetType)
+                .OrderBy(group => group.Average(pet => pet.Weight)).Last().Key :
+                (PetType?)null;
         }
 
         //Refactoring challenge
         //TODO implement this method
         public static IEnumerable<string> CountPets_Refactored(string petsData)
         {
-            //TODO your code goes here
-            throw new NotImplementedException();
+            //TODO your code goes here 
+            //return string.IsNullOrEmpty(petsData) ? new string[0] : petsData.Split(',').GroupBy(x => x, (pet, count) => new { Pet = pet, Count = count.Count() })
+            //    .Select(group => $"{group.Pet}:{group.Count}");
+
+            //return !string.IsNullOrEmpty(petsData) ?
+            //    petsData.Split(',').GroupBy(petType => petType)
+            //    .Select(petCount => $"{petCount.Key}:{petCount.Count()}") :
+            //    Enumerable.Empty<string>();
+
+            return !string.IsNullOrEmpty(petsData) ? 
+                petsData.Split(',').GroupBy(petType => petType)
+                .ToDictionary(petGroup => petGroup.Key, petGroup => petGroup.Count())
+                .Select(petCount => $"{petCount.Key}:{petCount.Value}") :
+                new string[0];
         }
 
         //do not modify this method

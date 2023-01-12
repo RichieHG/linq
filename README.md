@@ -190,6 +190,9 @@ This method will crate a Dictionary of our collection. To do this we have to def
 ## ToLookup
 A Lookup works similary as a Dictionary, but it allows you to save multiple values under the same Key. But also the KEY must be unique. But also, we can skip the VALUE definition, and C# will understand the value is the whole object.
 
+This method creates a Lookup object which is alos a collection of groupings.
+
+This method was created to work too well with C# objects, but for DB objects is better use OrderBy method
 ## AsEnumerable
 This method change a specific type of Collection to a IEnumerable<T> Collection and now we can use the other methods with this new Collection.
 
@@ -220,3 +223,9 @@ We can use:
 - **Repeat** to create a Collectiond and fill it repeating 'n' times a element.
 - **Range** to generate collection of incrementing integers; where the second param indicates the size of our final collection i.e. Range(10,40) it would result in a collection from 10 to 49
 - **DefaultEmpty** to create a copy of a non empty collection passed as input or to create an empty collection if we pass an empty input.
+
+## GroupBy
+Is used to group element of collection by some criteria.
+As result it creates a collection of groupings with each group having a key and a collection of elements belonging to this group.
+
+This method has an overloaded method which, give us access to the key and the grouped values at same time.

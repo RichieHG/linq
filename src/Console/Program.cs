@@ -89,6 +89,24 @@ namespace ConsoleSample
             var numbers = new[] { 1, 4, 10, 154, 999, 15 }; //{ 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
             var words = new[] { "a", "bb", "ccc", "dddd" };
             var pets = Data.Pets;
+            var people = new[]
+            {
+                new PetOwner(1, "Jhon", new[]
+                {
+                    pets.ElementAt(0),
+                    pets.ElementAt(1)
+                }),
+                new PetOwner(1, "Jack", new[]
+                {
+                    pets.ElementAt(2)
+                }),
+                new PetOwner(1, "Stephanie", new[]
+                {
+                    pets.ElementAt(3),
+                    pets.ElementAt(4),
+                    pets.ElementAt(5)
+                }),
+            };
 
             #region Introduction to LINQ
             //var wordsNoUpperCase = new string[] {
@@ -637,24 +655,7 @@ namespace ConsoleSample
             #endregion
 
             #region SelectMany
-            //var people = new[]
-            //{
-            //    new PetOwner(1, "Jhon", new[]
-            //    {
-            //        pets.ElementAt(0),
-            //        pets.ElementAt(1)
-            //    }),
-            //    new PetOwner(1, "Jack", new[]
-            //    {
-            //        pets.ElementAt(2)
-            //    }),
-            //    new PetOwner(1, "Stephanie", new[]
-            //    {
-            //        pets.ElementAt(3),
-            //        pets.ElementAt(4),
-            //        pets.ElementAt(5)
-            //    }),
-            //};
+
             //var petsWithOwner = people
             //    .Where(p => p.Name.StartsWith('J'))
             //    .SelectMany(p => p.Pets)
@@ -712,6 +713,7 @@ namespace ConsoleSample
             //    (number, letter) => $"{number},{letter}");
             //Printer.Print(carthesianProduct, nameof(carthesianProduct));
             #endregion
+
             #region GeneratingNewCollections
             //var emptyInts = Enumerable.Empty<int>();
             //Printer.Print(emptyInts, nameof(emptyInts));
@@ -742,6 +744,50 @@ namespace ConsoleSample
             //Printer.Print(defaultIfEmpty2, nameof(defaultIfEmpty2));
             #endregion
 
+            #region GroupBy
+            //var petsWeightsByPetType = pets
+            //    .ToLookup(p => 
+            //    p.PetType,
+            //    p => p.Weight);
+            ////Printer.Print(petsWeightsByPetType, nameof(petsWeightsByPetType));
+
+            //var sumsOfWeightsPerType = petsWeightsByPetType
+            //    .ToDictionary(
+            //    lookup => lookup.Key,
+            //    lookup => lookup.Sum());
+            ////Printer.Print(sumsOfWeightsPerType, nameof(sumsOfWeightsPerType));
+
+            //var groupings = pets.GroupBy(
+            //    p => p.PetType,
+            //    p => p.Weight);
+            //var sumsOfWeightsPerType2 = groupings
+            //    .ToDictionary(
+            //    lookup => lookup.Key,
+            //    lookup => lookup.Sum());
+            //Printer.Print(sumsOfWeightsPerType2, nameof(sumsOfWeightsPerType2));
+
+            var personsInitialToPetsMapping = people
+                .GroupBy(p => p.Name.First())
+                .ToDictionary( 
+                    grouping => grouping.Key + ".",
+                    grouping => string.Join(", ", grouping
+                        .SelectMany(p => p.Pets
+                            .Select(pet => pet.Name))));
+            //Printer.Print(personsInitialToPetsMapping, nameof(personsInitialToPetsMapping));
+
+            var petsGroupedByFloorWeight = pets.GroupBy(pet => Math.Floor(pet.Weight),
+                (key, pets) => new
+                {
+                    WeightFloor = key,
+                    MinWeight = pets.Min(pet => pet.Weight),
+                    MaxWeight = pets.Max(pet => pet.Weight)
+                })
+                .OrderBy(group => group.WeightFloor)
+                .Select(group => $"Weight floor: {group.WeightFloor}, " +
+                $"Min weight: {group.MinWeight}," +
+                $"Max weight: {group.MaxWeight}");
+            Printer.Print(petsGroupedByFloorWeight, nameof(petsGroupedByFloorWeight));
+            #endregion
         }
 
 
