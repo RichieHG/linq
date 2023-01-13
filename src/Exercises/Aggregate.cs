@@ -22,7 +22,13 @@ namespace Exercises
             IEnumerable<int> activityTimesInSeconds)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            //return activityTimesInSeconds.Aggregate(
+            //    new TimeSpan(),
+            //    (totalTimeSoFar, activityTime) =>
+            //    totalTimeSoFar.Add(TimeSpan.FromSeconds(activityTime)));
+
+            return TimeSpan.FromSeconds(activityTimesInSeconds.Aggregate((totalTimeSoFar, activityTime) =>
+               totalTimeSoFar + activityTime));
         }
 
         //Coding Exercise 2
@@ -41,7 +47,10 @@ namespace Exercises
         public static string PrintAlphabet(int count)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return count > 0 && count < 26 ? Enumerable.Range('b', count-1).Aggregate(
+                "a",
+                (stringSoFar, nextLetter) => $"{stringSoFar},{(char)nextLetter}") :
+                throw new ArgumentException($"'{nameof(count)}' must be between 1 and 26");
         }
 
         //Refactoring challenge
@@ -49,7 +58,21 @@ namespace Exercises
         public static IEnumerable<int> Fibonacci_Refactored(int n)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            /*
+             We need to do this operation N-2 times (which is reflected in the 
+            Range method) because the seed initially has the first two elements 
+            of the sequence. For example, for n=3 we want to extend the seed 
+            sequence {0,1} only once, to create the result sequence of {0,1,1}.
+            */
+            return n < 1 ? throw new ArgumentException(
+                    $"Can't generate Fibonacci sequence " +
+                    $"for {n} elements. N must be a " +
+                    $"positive number") :
+                    n == 1 ? new[] { 0 } :
+                    Enumerable.Range(1,n - 2).Aggregate(
+                        new List<int> { 0,1 } as IEnumerable<int>,
+                        (fiboSoFar, nextNumber) => 
+                        fiboSoFar.Append(fiboSoFar.ElementAt(nextNumber - 1) + fiboSoFar.ElementAt(nextNumber)));
         }
 
         //do not modify this method

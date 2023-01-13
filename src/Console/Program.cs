@@ -882,18 +882,56 @@ namespace ConsoleSample
             //    });
             //Printer.Print(groupedPetsAppointments, nameof(groupedPetsAppointments));
 
-            var leftJoin = pets.GroupJoin(clinicAppointments,
-                pet => pet.Id,
-                appointment => appointment.PetId,
-                (pet, appointments) => new
-                {
-                    Pet = pet,
-                    Appointments = appointments.DefaultIfEmpty()
-                })
-                .SelectMany( petAppointmentsPair => petAppointmentsPair.Appointments,
-                (petAppointmentsPait, singleAppointment) => $"Pet {petAppointmentsPait.Pet.Name} has " +
-                $"an appointment on {singleAppointment?.Date}");
-            Printer.Print(leftJoin, nameof(leftJoin));
+            //var leftJoin = pets.GroupJoin(clinicAppointments,
+            //    pet => pet.Id,
+            //    appointment => appointment.PetId,
+            //    (pet, appointments) => new
+            //    {
+            //        Pet = pet,
+            //        Appointments = appointments.DefaultIfEmpty()
+            //    })
+            //    .SelectMany( petAppointmentsPair => petAppointmentsPair.Appointments,
+            //    (petAppointmentsPait, singleAppointment) => $"Pet {petAppointmentsPait.Pet.Name} has " +
+            //    $"an appointment on {singleAppointment?.Date}");
+            //Printer.Print(leftJoin, nameof(leftJoin));
+            #endregion
+
+            #region Aggregate
+            //numbers = new[] { 10, 1, 4, 17, 122 };
+
+            //var sumOfNumbers = numbers.Aggregate((sum, nextNumber) =>
+            //    sum + nextNumber);
+            //Printer.Print(sumOfNumbers, nameof(sumOfNumbers));
+
+
+            var sentence = "The quick brownish fox jumps over the lazy dog";
+
+            var longestWord = sentence.Split(' ')
+                .Aggregate((longestSoFar, nextWord) =>
+                    nextWord.Length > longestSoFar.Length ? nextWord : longestSoFar);
+            Printer.Print(longestWord, nameof(longestWord));
+            var allLenghts = sentence.Split(' ').Aggregate(
+                Enumerable.Empty<int>(),
+                (lenghtsCollection, nextWord) => lenghtsCollection.Append(nextWord.Length));
+            Printer.Print(allLenghts, nameof(allLenghts));
+
+            //var letters = new[] { "a", "b", "c", "d" };
+            //var joinedLetters = letters.Aggregate((currentString, nextLetter) =>
+            //    currentString+","+nextLetter);
+            //Printer.Print(joinedLetters, nameof(joinedLetters));
+
+            //var countLetters = letters.Aggregate(0,(counter, letter) => counter + 1);
+            //Printer.Print(countLetters, nameof(countLetters));
+
+            //int factorialBase = 10;
+            //var factorial = Enumerable.Range(1, factorialBase - 1)
+            //    .Aggregate(
+            //    10,
+            //    (factorialSoFar, nextNumber) =>
+            //        factorialSoFar * (factorialBase - nextNumber));
+            //Printer.Print(factorial, nameof(factorial));
+
+
             #endregion
         }
 

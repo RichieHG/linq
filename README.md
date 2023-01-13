@@ -246,4 +246,11 @@ Checks if two collections are equal.
 * Inner Join: returns those records that have matching values in both collections (Join)
 * Left Join: returns all records for the left collection and the matching entries from the right collection (if they exist) (GroupJoin)
 
+## Aggregate
+Applies an accumulator function over a collection. This means we can have a function that will be executed for each element of the collection, and each execution will keep altering some accumulated result.
+
+The overloaded method of Aggregate allow us to set the initial value of the accumulator.
+
+
+
 
