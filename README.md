@@ -252,5 +252,20 @@ Applies an accumulator function over a collection. This means we can have a func
 The overloaded method of Aggregate allow us to set the initial value of the accumulator.
 
 
+## Zip
+Applies a specific function to elements of two collections, prooducing a collection of results.
+
+This method will ingored each overflow elements of the collections.
+
+Is so common use this method to Zip a collection with itself.
+
+## Query Sintax
+We alway start our query like ```from *elementName* in *collectionName*```. After that we can add all the LINQ operations that we want to execute (*orderby, where, group by, join*). Finally we have to put our *select* clause (Mandatory).
+The only exception is the **grouping** operartion
+
+To create local variables into our operations, we can use *let* word
+
+
+
 
 

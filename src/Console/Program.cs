@@ -948,7 +948,7 @@ namespace ConsoleSample
             //    words,
             //    (number, word) => $"{number},{word}");
             //Printer.Print(numbersZippedWithWordsNonEqual, nameof(numbersZippedWithWordsNonEqual));
-            
+
             //var countries = new[] { "United States", "Great Britain", "Poland" };
             //var currencies = new[] { "USD", "GBP", "PLN" };
             //var countryCurrency = countries.Zip(
@@ -958,19 +958,28 @@ namespace ConsoleSample
             //        tuple => tuple.Second);
             //Printer.Print(countryCurrency, nameof(countryCurrency));
 
-            var points = new[]
-            {
-                new Point(10,10),
-                new Point(10,11),
-                new Point(11,12),
-                new Point(11,14),
-                new Point(12,16),
-            };
+            //var points = new[]
+            //{
+            //    new Point(10,10),
+            //    new Point(10,11),
+            //    new Point(11,12),
+            //    new Point(11,14),
+            //    new Point(12,16),
+            //};
 
-            var distances = points.Zip(points.Skip(1),
-                (first, second) => GetDistance(first,second));
-            Printer.Print(distances, nameof(distances));
+            //var distances = points.Zip(points.Skip(1),
+            //    (first, second) => GetDistance(first,second));
+            //Printer.Print(distances, nameof(distances));
 
+            #endregion
+
+            #region QuerySintax Introduction
+            //numbers = new[] { 9, 3, 7, 1, 2 };
+            //var sortedNumbers = from number in numbers
+            //                    let floorOfSqrtNumber = Math.Floor(Math.Sqrt(number))
+            //                    orderby floorOfSqrtNumber
+            //                    select floorOfSqrtNumber;
+            //Printer.Print(sortedNumbers, nameof(sortedNumbers));                                
             #endregion
         }
 
