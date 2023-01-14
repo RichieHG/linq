@@ -87,8 +87,8 @@ namespace ConsoleSample
             //OTHERS
             //DotNet6Improvements.Run();
 
-            var numbers =  new[] { 9, 3, 7, 1, 2 }; //new[] { 1, 4, 10, 154, 999, 15 }; //{ 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
-            var words = new[] { "a", "bb", "ccc", "dddd" };
+            var numbers = new[] { 10, 1, 4, 17, 122 }; //{ 9, 3, 7, 1, 2 }; //new[] { 1, 4, 10, 154, 999, 15 }; //{ 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
+            var words = new[] { "little", "brown", "fox" }; //{ "a", "bb", "ccc", "dddd" };
             var pets = Data.Pets;
             var people = Data.People;
             var clinicAppointments = Data.VeterinaryClinicAppointments;
@@ -1040,10 +1040,40 @@ namespace ConsoleSample
 
             //Printer.Print(dogsAndCatsLighter10Kilos, nameof(dogsAndCatsLighter10Kilos));
 
-            var countOfCats = (from pet in pets
-                               where pet.PetType == PetType.Cat
-                               select pet).Count();
-            Printer.Print(countOfCats, nameof(countOfCats));
+            //var countOfCats = (from pet in pets
+            //                   where pet.PetType == PetType.Cat
+            //                   select pet).Count();
+            //Printer.Print(countOfCats, nameof(countOfCats));
+            #endregion
+
+            #region Select QuerySintax
+            //var tripledNumbers = from number in numbers
+            //                     select number * 3;
+            //Printer.Print(tripledNumbers, nameof(tripledNumbers));
+
+            //var upperCaseWords = from word in words
+            //                     select word.ToUpper();
+            //Printer.Print(upperCaseWords, nameof(upperCaseWords));
+
+            //var namesOfPets = from pet in pets
+            //                  select pet.Name;
+            //Printer.Print(namesOfPets, nameof(namesOfPets));
+
+            //var petTypesOfHeavierPets = (from pet in pets
+            //                            where pet.Weight > 4
+            //                            select pet.PetType).Distinct();
+            //Printer.Print(petTypesOfHeavierPets, nameof(petTypesOfHeavierPets));
+
+            //var petsInitials = from pet in pets
+            //                  orderby pet.Name
+            //                  select $"{pet.Name.First()}.";
+            //Printer.Print(petsInitials,nameof(petsInitials) );
+
+            //var petsData = from pet in pets
+            //               select $"Pet name: {pet.Name}" +
+            //               $"of type {pet.PetType}, " +
+            //               $"and weight {pet.Weight}";
+            //Printer.Print(petsData,nameof(petsData) );
             #endregion
         }
 
