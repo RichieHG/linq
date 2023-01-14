@@ -87,7 +87,7 @@ namespace ConsoleSample
             //OTHERS
             //DotNet6Improvements.Run();
 
-            var numbers = new[] { 1, 4, 10, 154, 999, 15 }; //{ 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
+            var numbers =  new[] { 9, 3, 7, 1, 2 }; //new[] { 1, 4, 10, 154, 999, 15 }; //{ 16, 8, 9, -1, 2 }; //new[] { 1, 4, 3, 99, 256, 2 };
             var words = new[] { "a", "bb", "ccc", "dddd" };
             var pets = Data.Pets;
             var people = Data.People;
@@ -980,6 +980,33 @@ namespace ConsoleSample
             //                    orderby floorOfSqrtNumber
             //                    select floorOfSqrtNumber;
             //Printer.Print(sortedNumbers, nameof(sortedNumbers));                                
+            #endregion
+
+            #region OrderBy QuerySintax
+            //var sortedNumbers = from number in numbers
+            //                    orderby number
+            //                    select number;
+            //Printer.Print(sortedNumbers, nameof(sortedNumbers));
+
+            //var sortedNumbersDesc = from number in numbers
+            //                        orderby number descending
+            //                        select number;
+            //Printer.Print(sortedNumbersDesc, nameof(sortedNumbersDesc));
+
+            //var orderedPetsByNameDesc = from pet in pets
+            //                            orderby pet.Name descending
+            //                            select pet;
+            //Printer.Print(orderedPetsByNameDesc, nameof(orderedPetsByNameDesc));
+
+            //var orderedPetsByTypeThenID = from pet in pets
+            //                            orderby pet.PetType descending, pet.Id descending
+            //                            select pet;
+            //Printer.Print(orderedPetsByTypeThenID, nameof(orderedPetsByTypeThenID));
+
+            //var petsOrderedByNameDesc2 = (from pet in pets
+            //                             orderby pet.Name
+            //                             select pet).Reverse();
+            //Printer.Print(petsOrderedByNameDesc2, nameof(petsOrderedByNameDesc2));
             #endregion
         }
 
