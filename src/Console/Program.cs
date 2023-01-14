@@ -1,6 +1,7 @@
 ﻿using Exercises;
 using LinqCourse;
 using LinqCourse.DataTypes;
+using System.Drawing;
 using Utilities;
 
 namespace ConsoleSample
@@ -904,16 +905,16 @@ namespace ConsoleSample
             //Printer.Print(sumOfNumbers, nameof(sumOfNumbers));
 
 
-            var sentence = "The quick brownish fox jumps over the lazy dog";
+            //var sentence = "The quick brownish fox jumps over the lazy dog";
 
-            var longestWord = sentence.Split(' ')
-                .Aggregate((longestSoFar, nextWord) =>
-                    nextWord.Length > longestSoFar.Length ? nextWord : longestSoFar);
-            Printer.Print(longestWord, nameof(longestWord));
-            var allLenghts = sentence.Split(' ').Aggregate(
-                Enumerable.Empty<int>(),
-                (lenghtsCollection, nextWord) => lenghtsCollection.Append(nextWord.Length));
-            Printer.Print(allLenghts, nameof(allLenghts));
+            //var longestWord = sentence.Split(' ')
+            //    .Aggregate((longestSoFar, nextWord) =>
+            //        nextWord.Length > longestSoFar.Length ? nextWord : longestSoFar);
+            //Printer.Print(longestWord, nameof(longestWord));
+            //var allLenghts = sentence.Split(' ').Aggregate(
+            //    Enumerable.Empty<int>(),
+            //    (lenghtsCollection, nextWord) => lenghtsCollection.Append(nextWord.Length));
+            //Printer.Print(allLenghts, nameof(allLenghts));
 
             //var letters = new[] { "a", "b", "c", "d" };
             //var joinedLetters = letters.Aggregate((currentString, nextLetter) =>
@@ -933,8 +934,53 @@ namespace ConsoleSample
 
 
             #endregion
+
+            #region Zip
+            //numbers = new[] { 1, 2, 3, 4, 5 };
+            //words = new[] { "The", "quick", "brown", "fox", "jumps" };
+            //var numbersZippedWithWords = numbers.Zip(
+            //    words,
+            //    (number, word) => $"{number},{word}");
+            //Printer.Print(numbersZippedWithWords, nameof(numbersZippedWithWords));
+
+            //var moreNumbers = new[] {1,2, 3, 4, 5,6,7,8 };
+            //var numbersZippedWithWordsNonEqual = moreNumbers.Zip(
+            //    words,
+            //    (number, word) => $"{number},{word}");
+            //Printer.Print(numbersZippedWithWordsNonEqual, nameof(numbersZippedWithWordsNonEqual));
+            
+            //var countries = new[] { "United States", "Great Britain", "Poland" };
+            //var currencies = new[] { "USD", "GBP", "PLN" };
+            //var countryCurrency = countries.Zip(
+            //    currencies)
+            //    .ToDictionary(
+            //        tuple => tuple.First,
+            //        tuple => tuple.Second);
+            //Printer.Print(countryCurrency, nameof(countryCurrency));
+
+            var points = new[]
+            {
+                new Point(10,10),
+                new Point(10,11),
+                new Point(11,12),
+                new Point(11,14),
+                new Point(12,16),
+            };
+
+            var distances = points.Zip(points.Skip(1),
+                (first, second) => GetDistance(first,second));
+            Printer.Print(distances, nameof(distances));
+
+            #endregion
         }
 
+        private static double GetDistance(Point p1, Point p2)
+        {
+            return Math.Sqrt(
+                Math.Pow((p2.X - p1.X), 2) +
+                Math.Pow((p2.Y - p1.Y),2)
+                );
+        }
 
         public static bool IsAny<T>(
             IEnumerable<T> collection,
