@@ -1008,6 +1008,43 @@ namespace ConsoleSample
             //                             select pet).Reverse();
             //Printer.Print(petsOrderedByNameDesc2, nameof(petsOrderedByNameDesc2));
             #endregion
+
+            #region Where QuerySintax
+            //numbers = new[] { 10, 1, 4, 17, 122 };
+
+            //var evenNumbers = from number in numbers
+            //                  where number % 2 == 0
+            //                  orderby number
+            //                  select number;
+            //Printer.Print(evenNumbers, nameof(evenNumbers));
+
+            //var selectedIndexez = new[] { 0, 3, 6 };
+            //var lightPetsFromWithinIndexesMethodSyntax =
+            //    pets.Where((pet, index) => pet.Weight < 10 &&
+            //    selectedIndexez.Contains(index));
+            //Printer.Print(lightPetsFromWithinIndexesMethodSyntax, nameof(lightPetsFromWithinIndexesMethodSyntax));
+
+            //var lightPetsFromWithinIndexes = from petIndexPair in pets.Select(
+            //                                    (pet, index) => 
+            //                                    new { Pet = pet, Index = index })
+            //                                 where petIndexPair.Pet.Weight < 10 && selectedIndexez.Contains(petIndexPair.Index)
+            //                                 select petIndexPair.Pet;
+
+            //                             var dogsAndCatsLighter10Kilos = from pet in pets
+            //                                where (pet.PetType == PetType.Dog ||
+            //                                pet.PetType == PetType.Cat) && 
+            //                                pet.Weight < 10 &&
+            //                                pet.Name.Length > 4
+            //                                select pet;
+            //Printer.Print(lightPetsFromWithinIndexes, nameof(lightPetsFromWithinIndexes));
+
+            //Printer.Print(dogsAndCatsLighter10Kilos, nameof(dogsAndCatsLighter10Kilos));
+
+            var countOfCats = (from pet in pets
+                               where pet.PetType == PetType.Cat
+                               select pet).Count();
+            Printer.Print(countOfCats, nameof(countOfCats));
+            #endregion
         }
 
         private static double GetDistance(Point p1, Point p2)

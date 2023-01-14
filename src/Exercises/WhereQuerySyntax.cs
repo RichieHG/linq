@@ -25,7 +25,9 @@ namespace Exercises
            int year, IEnumerable<Person> people)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return from person in people
+                   where person.DateOfBirth.Year > year
+                   select person;
         }
 
         //Coding Exercise 2
@@ -50,7 +52,10 @@ namespace Exercises
                IEnumerable<Student> students)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return from student in students
+                   where !student.Marks.Any() ||
+                   student.Marks.Average() < 3
+                   select student;
         }
 
         //Refactoring challenge
@@ -60,7 +65,10 @@ namespace Exercises
                  IEnumerable<string> words)
         {
             //TODO your code goes here
-            throw new NotImplementedException();
+            return from word in words
+                   where word.Contains(substring)
+                   orderby word
+                   select word;
         }
 
         //do not modify this method
