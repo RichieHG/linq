@@ -1102,6 +1102,37 @@ namespace ConsoleSample
             //                       select number;
             //Printer.Print(flattenedNumbers, nameof(flattenedNumbers));
             #endregion
+            #region GroupBy QuerySyntax
+            //var groupedPets = from pet in pets
+            //                  group pet by pet.PetType;
+
+            //var petTypeWeightsSum = groupedPets.ToDictionary(pair => pair.Key,
+            //                        pair => pair.Sum(p => p.Weight));
+            //Printer.Print(petTypeWeightsSum, nameof(petTypeWeightsSum));
+
+            //var peopleInitialsPetsMapping = (from person in people
+            //                                 group person by person.Name.First())
+            //                                .ToDictionary(
+            //                                    grouping => grouping.Key,
+            //                                    grouping => string.Join(',',
+            //                                        from person in grouping
+            //                                        from pet in person.Pets
+            //                                        select pet.Name));
+            //Printer.Print(peopleInitialsPetsMapping, nameof(peopleInitialsPetsMapping));
+
+            //var petWeightGroup = from pet in pets
+            //                     group pet by Math.Floor(pet.Weight)
+            //                     into grouped
+            //                     orderby grouped.Key
+            //                     let petsOrderedByWeight = from pet in grouped
+            //                                               orderby pet.Weight
+            //                                               select pet
+            //                     select $"Weight Category: {grouped.Key}, " +
+            //                            $"Heaviest Pet: {petsOrderedByWeight.Last().Name}, "+
+            //                            $"Lightest Pet: {petsOrderedByWeight.First().Name}";
+            //Printer.Print(petWeightGroup, nameof(petWeightGroup));
+
+            #endregion
         }
 
         private static double GetDistance(Point p1, Point p2)
