@@ -1131,7 +1131,34 @@ namespace ConsoleSample
             //                            $"Heaviest Pet: {petsOrderedByWeight.Last().Name}, "+
             //                            $"Lightest Pet: {petsOrderedByWeight.First().Name}";
             //Printer.Print(petWeightGroup, nameof(petWeightGroup));
+            #endregion
 
+            #region Join
+            //var innerJoin = from pet in pets
+            //                join appointment in clinicAppointments
+            //                    on pet.Id equals appointment.PetId
+            //                select $"Pet name: {pet.Name}, appointment" +
+            //                $" on {appointment.Date}";
+            //Printer.Print(innerJoin, nameof(innerJoin));
+
+            //var allInfoAppointments = from pet in pets
+            //                join appointment in clinicAppointments
+            //                    on pet.Id equals appointment.PetId
+            //                join clinic in clinics
+            //                    on appointment.ClinicId equals clinic.Id
+            //                select $"Pet name: {pet.Name}, appointment" +
+            //                $" on {appointment.Date}," +
+            //                $" in {clinic.Name}";
+            //Printer.Print(allInfoAppointments, nameof(allInfoAppointments));
+
+            var leftJoin = from pet in pets
+                            join appointment in clinicAppointments
+                                on pet.Id equals appointment.PetId
+                            into petsAppointments
+                            from singleAppointment in petsAppointments.DefaultIfEmpty()
+                           select $"Pet name: {pet.Name}, appointment" +
+                            $" on {singleAppointment?.Date}"; ;
+            Printer.Print(leftJoin, nameof(leftJoin));
             #endregion
         }
 
