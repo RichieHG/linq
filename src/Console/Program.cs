@@ -93,6 +93,26 @@ namespace ConsoleSample
             var people = Data.People;
             var clinicAppointments = Data.VeterinaryClinicAppointments;
             var clinics = Data.VeterinaryClinics;
+            var nestedListOfNumbers = new List<List<int>>
+            {
+                new List<int> {1,2,3},
+                new List<int> {4,5,6},
+                new List<int> {5,6}
+            };
+            var veryNestedListOfNumbers = new List<List<List<int>>>
+            {
+                new List<List<int>>
+                {
+                    new List<int> {1,2,3},
+                    new List<int> {4,5,6},
+                    new List<int> {5,6}
+                },
+                new List<List<int>>
+                {
+                    new List<int> {10,12,13},
+                    new List<int> {14,15}
+                }
+            };
 
             #region Introduction to LINQ
             //var wordsNoUpperCase = new string[] {
@@ -648,26 +668,6 @@ namespace ConsoleSample
             //    .Select(p => p.Name);
             //Printer.Print(petsWithOwner, nameof(petsWithOwner));
 
-            //var nestedListOfNumbers = new List<List<int>>
-            //{
-            //    new List<int> {1,2,3},
-            //    new List<int> {4,5,6},
-            //    new List<int> {5,6}
-            //};
-            //var veryNestedListOfNumbers = new List<List<List<int>>>
-            //{
-            //    new List<List<int>>
-            //    {
-            //        new List<int> {1,2,3},
-            //        new List<int> {4,5,6},
-            //        new List<int> {5,6}
-            //    },
-            //    new List<List<int>>
-            //    {
-            //        new List<int> {10,12,13},
-            //        new List<int> {14,15}
-            //    }
-
             //};
 
             //var sum = nestedListOfNumbers.SelectMany(n => n).Sum();
@@ -1074,6 +1074,33 @@ namespace ConsoleSample
             //               $"of type {pet.PetType}, " +
             //               $"and weight {pet.Weight}";
             //Printer.Print(petsData,nameof(petsData) );
+            #endregion
+
+            #region SelectMany QuerySintax
+            //var allNumbers = from list in nestedListOfNumbers
+            //                 from number in list
+            //                 select number;
+            //Printer.Print(allNumbers, nameof(allNumbers));
+
+            //var petsWithOwnerWithJ = from person in people
+            //                         where person.Name.StartsWith('J')
+            //                         from pet in person.Pets
+            //                         select pet;
+            //Printer.Print(petsWithOwnerWithJ, nameof(petsWithOwnerWithJ));
+
+            //numbers = new[] { 1, 2, 3 };
+            //var letters = new[] { 'A', 'B', 'C' };
+
+            //var cartesianProduct = from number in numbers
+            //                       from letter in letters
+            //                       select $"{number},{letter}";
+            //Printer.Print(cartesianProduct, nameof(cartesianProduct));
+
+            //var flattenedNumbers = from nestedList in veryNestedListOfNumbers
+            //                       from list in nestedList
+            //                       from number in list
+            //                       select number;
+            //Printer.Print(flattenedNumbers, nameof(flattenedNumbers));
             #endregion
         }
 
