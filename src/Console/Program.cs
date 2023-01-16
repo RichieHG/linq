@@ -40,6 +40,11 @@ namespace ConsoleSample
             Name = _name;
             Country = _country;
         }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Country: {Country}";
+        }
     }
 
     internal class Program
@@ -1151,14 +1156,81 @@ namespace ConsoleSample
             //                $" in {clinic.Name}";
             //Printer.Print(allInfoAppointments, nameof(allInfoAppointments));
 
-            var leftJoin = from pet in pets
-                            join appointment in clinicAppointments
-                                on pet.Id equals appointment.PetId
-                            into petsAppointments
-                            from singleAppointment in petsAppointments.DefaultIfEmpty()
-                           select $"Pet name: {pet.Name}, appointment" +
-                            $" on {singleAppointment?.Date}"; ;
-            Printer.Print(leftJoin, nameof(leftJoin));
+            //var leftJoin = from pet in pets
+            //                join appointment in clinicAppointments
+            //                    on pet.Id equals appointment.PetId
+            //                into petsAppointments
+            //                from singleAppointment in petsAppointments.DefaultIfEmpty()
+            //               select $"Pet name: {pet.Name}, appointment" +
+            //                $" on {singleAppointment?.Date}"; ;
+            //Printer.Print(leftJoin, nameof(leftJoin));
+            #endregion
+
+            #region Improvements
+
+            //var heaviestPet = pets.MaxBy(pet => pet.Weight);
+            //Printer.Print(heaviestPet, nameof(heaviestPet));
+
+            //var petWithShortestName = pets.MinBy(pet => pet.Name.Length);
+            //Printer.Print(petWithShortestName, nameof(petWithShortestName));
+
+            //var peopleWithDuplicatesByName = new[]
+            //{
+            //    new Person("Jhon","CDMX"),
+            //    new Person("Jhon","ARG"),
+            //    new Person("Monica","USA"),
+            //    new Person("Monica","UK"),
+            //    new Person("Peter","POL")
+            //};
+
+            //var peopleDistinctByName = peopleWithDuplicatesByName
+            //    .DistinctBy(person => person.Name);
+            //Printer.Print(peopleDistinctByName, nameof(peopleDistinctByName));
+
+            numbers = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            //var chunks = numbers.Chunk(3);
+            //foreach(var chunk in chunks)
+            //{
+            //    Printer.Print(chunk.AsEnumerable(), nameof(chunk));
+            //}
+
+            //var years = new[] { 2000, 2001, 2002 };
+            //var months = new[] { 9, 10, 11 };
+            //var days = new[] { 20, 21, 22 };
+
+            //var dates = years.Zip(months,days)
+            //    .Select((yearMonthDayGroup) => 
+            //        $"{yearMonthDayGroup.First}/{yearMonthDayGroup.Second}/{yearMonthDayGroup.Third}");
+            //Printer.Print(dates, nameof(dates));
+
+            //var thirdFromEnd = numbers.ElementAt(numbers.Count() - 3);
+            //var thirdFromEndNew = numbers.ElementAt(^3);
+            //Printer.Print(thirdFromEnd, nameof(thirdFromEnd));
+            //Printer.Print(thirdFromEndNew, nameof(thirdFromEndNew));
+
+            var twoToSixOld = numbers.Skip(2).Take(4);
+            Printer.Print(twoToSixOld, nameof(twoToSixOld));
+            var twoToSixNew = numbers.Take(2..6);
+            Printer.Print(twoToSixNew, nameof(twoToSixNew));
+
+            var allAfterIndex6 = numbers.Take(6..);
+            Printer.Print(allAfterIndex6, nameof(allAfterIndex6));
+
+            var allBeforeIndex3 = numbers.Take(..3);
+            Printer.Print(allBeforeIndex3, nameof(allBeforeIndex3));
+
+            var allBeforeIndex3ByTheEnd = numbers.Take(..^3);
+            Printer.Print(allBeforeIndex3ByTheEnd, nameof(allBeforeIndex3ByTheEnd));
+
+            if(numbers.TryGetNonEnumeratedCount(out var count))
+            {
+                Console.WriteLine("Count is: " + count);
+            }
+            else
+            {
+                Console.WriteLine("Can't get the count without enumerating");
+            }
             #endregion
         }
 

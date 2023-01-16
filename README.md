@@ -259,13 +259,33 @@ This method will ingored each overflow elements of the collections.
 
 Is so common use this method to Zip a collection with itself.
 
+In NET 6 we can zip three collections, adding the third into the method call.
+
 ## Query Sintax
 We alway start our query like ```from *elementName* in *collectionName*```. After that we can add all the LINQ operations that we want to execute (*orderby, where, group by, join*). Finally we have to put our *select* clause (Mandatory).
 The only exception is the **grouping** operartion
 
 To create local variables into our operations, we can use *let* word
 
+## MaxBy / MinBy
+This methods return whole object that fulfills the predicate. Contrary to Min/Max that only return the min/max value.
+
+## Chunk
+Allow us to split a collection into smaller groups of 'n' elements.
 
 
+## FromEnd Operator (^)
+This operator means that we will count begining from the end.
 
+## Range Operator (..)
+It means we are stting a index range to work.
+
+We can define both limits (x..y) takes elements between x and y
+
+Or only one (x..) takes all elements after x
+
+Or only one (..x) takes all elements before x If we don't use FromEnd Operator it will works like a simply Take method.
+
+## TryGetNonEnumeratedCount
+Try to get the count of a collection without enumerating the whole collection (it was created to works with databases and is so useful when we don't want to risk enumerating the collection)
 
